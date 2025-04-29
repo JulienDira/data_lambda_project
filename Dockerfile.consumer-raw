@@ -1,0 +1,27 @@
+FROM python:3.9-slim-buster
+
+# Mettre à jour et installer les dépendances nécessaires
+RUN apt-get update && apt-get install -y openjdk-11-jdk-headless gcc libpq-dev
+
+# Installer PySpark
+RUN pip install pyspark==3.5.0
+
+# Installer psycopg2-binary pour la connexion PostgreSQL
+RUN pip install psycopg2-binary
+
+# Copier les fichiers Spark dans le conteneur
+
+COPY ./ /app/
+COPY ./log/log4j.properties /var/log/log4j.properties
+
+# Installer les dépendances depuis le fichier requirements.txt
+# RUN pip install -r /app/requirements.txt
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+RUN chmod +x /app/entrypoint_raw.sh
+
+# Lancer le script Spark
+ENTRYPOINT ["./entrypoint_raw.sh"]
+# CMD ["spark-submit", "--master", "local[*]", "consumer_transaction_log.py"]

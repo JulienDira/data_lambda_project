@@ -1,0 +1,2 @@
+v1
+{"path":"file:///app/data_lake/transaction_flattened/ingestion_date=2025-04-29/part-00000-60c97dfc-04ae-4c1b-9975-863d5eae8d34.c000.snappy.parquet","size":14111,"isDir":false,"modificationTime":1745938923194,"blockReplication":1,"blockSize":33554432,"action":"add"}

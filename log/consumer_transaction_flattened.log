@@ -1,0 +1,111 @@
+/usr/local/lib/python3.9/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+:: loading settings :: url = jar:file:/usr/local/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /root/.ivy2/cache
+The jars for the packages stored in: /root/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+org.apache.kafka#kafka-clients added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-c2b4696a-814c-45d5-8bc4-676a0357a83e;1.0
+	confs: [default]
+:: resolution report :: resolve 6522ms :: artifacts dl 0ms
+	:: modules in use:
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   2   |   0   |   0   |   0   ||   0   |   0   |
+	---------------------------------------------------------------------
+
+:: problems summary ::
+:::: WARNINGS
+	problem while downloading module descriptor: https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.4.1/spark-parent_2.12-3.4.1.pom: Downloaded file size (0) doesn't match expected Content Length (135070) for https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.4.1/spark-parent_2.12-3.4.1.pom. Please retry. (91ms)
+
+	io problem while parsing ivy file: https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.4.1/spark-sql-kafka-0-10_2.12-3.4.1.pom (java.io.IOException: Impossible to load parent for file:/root/.ivy2/cache/org.apache.spark/spark-sql-kafka-0-10_2.12/ivy-3.4.1.xml.original. Parent=org.apache.spark#spark-parent_2.12;3.4.1)
+
+		module not found: org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1
+
+	==== local-m2-cache: tried
+
+	  file:/root/.m2/repository/org/apache/spark/spark-parent_2.12/3.4.1/spark-parent_2.12-3.4.1.pom
+
+	  -- artifact org.apache.spark#spark-parent_2.12;3.4.1!spark-parent_2.12.jar:
+
+	  file:/root/.m2/repository/org/apache/spark/spark-parent_2.12/3.4.1/spark-parent_2.12-3.4.1.jar
+
+	==== local-ivy-cache: tried
+
+	  /root/.ivy2/local/org.apache.spark/spark-parent_2.12/3.4.1/ivys/ivy.xml
+
+	  -- artifact org.apache.spark#spark-parent_2.12;3.4.1!spark-parent_2.12.jar:
+
+	  /root/.ivy2/local/org.apache.spark/spark-parent_2.12/3.4.1/jars/spark-parent_2.12.jar
+
+	==== central: tried
+
+	  https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.4.1/spark-parent_2.12-3.4.1.pom
+
+	==== spark-packages: tried
+
+	  https://repos.spark-packages.org/org/apache/spark/spark-sql-kafka-0-10_2.12/3.4.1/spark-sql-kafka-0-10_2.12-3.4.1.pom
+
+	  -- artifact org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1!spark-sql-kafka-0-10_2.12.jar:
+
+	  https://repos.spark-packages.org/org/apache/spark/spark-sql-kafka-0-10_2.12/3.4.1/spark-sql-kafka-0-10_2.12-3.4.1.jar
+
+	problem while downloading module descriptor: https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.pom: Downloaded file size (0) doesn't match expected Content Length (1774) for https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.pom. Please retry. (15ms)
+
+		module not found: org.apache.kafka#kafka-clients;3.4.1
+
+	==== local-m2-cache: tried
+
+	  file:/root/.m2/repository/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.pom
+
+	  -- artifact org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar:
+
+	  file:/root/.m2/repository/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar
+
+	==== local-ivy-cache: tried
+
+	  /root/.ivy2/local/org.apache.kafka/kafka-clients/3.4.1/ivys/ivy.xml
+
+	  -- artifact org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar:
+
+	  /root/.ivy2/local/org.apache.kafka/kafka-clients/3.4.1/jars/kafka-clients.jar
+
+	==== central: tried
+
+	  https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.pom
+
+	==== spark-packages: tried
+
+	  https://repos.spark-packages.org/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.pom
+
+	  -- artifact org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar:
+
+	  https://repos.spark-packages.org/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		::          UNRESOLVED DEPENDENCIES         ::
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		:: org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1: not found
+
+		:: org.apache.kafka#kafka-clients;3.4.1: not found
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+Exception in thread "main" java.lang.RuntimeException: [unresolved dependency: org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1: not found, unresolved dependency: org.apache.kafka#kafka-clients;3.4.1: not found]
+	at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:1537)
+	at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:185)
+	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:334)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:964)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)

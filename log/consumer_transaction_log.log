@@ -1,0 +1,67 @@
+/usr/local/lib/python3.9/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+:: loading settings :: url = jar:file:/usr/local/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /root/.ivy2/cache
+The jars for the packages stored in: /root/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+org.apache.kafka#kafka-clients added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-97253ef0-e5ff-462e-ae8e-f6f5693d5697;1.0
+	confs: [default]
+[Fatal Error] ivy-3.4.1.xml.original:826:48: The element type "os.detected.release.like.ubuntu" must be terminated by the matching end-tag "</os.detected.release.like.ubuntu>".
+	found org.apache.kafka#kafka-clients;3.4.1 in central
+	found com.github.luben#zstd-jni;1.5.2-1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.8.4 in central
+	found org.slf4j#slf4j-api;1.7.36 in central
+downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar ...
+	[SUCCESSFUL ] org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar (1911ms)
+downloading https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.2-1/zstd-jni-1.5.2-1.jar ...
+	[SUCCESSFUL ] com.github.luben#zstd-jni;1.5.2-1!zstd-jni.jar (1771ms)
+downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (203ms)
+downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.8.4/snappy-java-1.1.8.4.jar ...
+	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.8.4!snappy-java.jar(bundle) (550ms)
+downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar ...
+	[SUCCESSFUL ] org.slf4j#slf4j-api;1.7.36!slf4j-api.jar (41ms)
+:: resolution report :: resolve 6198ms :: artifacts dl 4488ms
+	:: modules in use:
+	com.github.luben#zstd-jni;1.5.2-1 from central in [default]
+	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.slf4j#slf4j-api;1.7.36 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.8.4 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   6   |   5   |   5   |   0   ||   5   |   5   |
+	---------------------------------------------------------------------
+
+:: problems summary ::
+:::: WARNINGS
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		::          UNRESOLVED DEPENDENCIES         ::
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		:: org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1: java.text.ParseException: The element type "os.detected.release.like.ubuntu" must be terminated by the matching end-tag "</os.detected.release.like.ubuntu>".
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::: ERRORS
+	The element type "os.detected.release.like.ubuntu" must be terminated by the matching end-tag "</os.detected.release.like.ubuntu>".
+
+
+:: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+Exception in thread "main" java.lang.RuntimeException: [unresolved dependency: org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1: java.text.ParseException: The element type "os.detected.release.like.ubuntu" must be terminated by the matching end-tag "</os.detected.release.like.ubuntu>".]
+	at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:1537)
+	at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:185)
+	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:334)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:964)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
