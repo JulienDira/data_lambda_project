@@ -1,0 +1,99 @@
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /root/.ivy2/cache
+The jars for the packages stored in: /root/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+org.apache.kafka#kafka-clients added as a dependency
+org.apache.commons#commons-pool2 added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-e5619ec4-1950-461d-bbf1-3af22747ba31;1.0
+	confs: [default]
+	found org.apache.kafka#kafka-clients;3.3.1 in central
+	found com.github.luben#zstd-jni;1.5.2-1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.8.4 in central
+	found org.slf4j#slf4j-api;1.7.36 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.3.1/kafka-clients-3.3.1.jar ...
+	[SUCCESSFUL ] org.apache.kafka#kafka-clients;3.3.1!kafka-clients.jar (2663ms)
+downloading https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.2-1/zstd-jni-1.5.2-1.jar ...
+	[SUCCESSFUL ] com.github.luben#zstd-jni;1.5.2-1!zstd-jni.jar (5724ms)
+downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (698ms)
+downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.8.4/snappy-java-1.1.8.4.jar ...
+	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.8.4!snappy-java.jar(bundle) (1447ms)
+downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar ...
+	[SUCCESSFUL ] org.slf4j#slf4j-api;1.7.36!slf4j-api.jar (35ms)
+:: resolution report :: resolve 4588ms :: artifacts dl 10576ms
+	:: modules in use:
+	com.github.luben#zstd-jni;1.5.2-1 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.kafka#kafka-clients;3.3.1 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.slf4j#slf4j-api;1.7.36 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.8.4 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   7   |   5   |   5   |   0   ||   6   |   5   |
+	---------------------------------------------------------------------
+
+:: problems summary ::
+:::: WARNINGS
+	problem while downloading module descriptor: https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.5.0/spark-parent_2.12-3.5.0.pom: Downloaded file size (0) doesn't match expected Content Length (136070) for https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.5.0/spark-parent_2.12-3.5.0.pom. Please retry. (185ms)
+
+	io problem while parsing ivy file: https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.pom (java.io.IOException: Impossible to load parent for file:/root/.ivy2/cache/org.apache.spark/spark-sql-kafka-0-10_2.12/ivy-3.5.0.xml.original. Parent=org.apache.spark#spark-parent_2.12;3.5.0)
+
+		module not found: org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0
+
+	==== local-m2-cache: tried
+
+	  file:/root/.m2/repository/org/apache/spark/spark-parent_2.12/3.5.0/spark-parent_2.12-3.5.0.pom
+
+	  -- artifact org.apache.spark#spark-parent_2.12;3.5.0!spark-parent_2.12.jar:
+
+	  file:/root/.m2/repository/org/apache/spark/spark-parent_2.12/3.5.0/spark-parent_2.12-3.5.0.jar
+
+	==== local-ivy-cache: tried
+
+	  /root/.ivy2/local/org.apache.spark/spark-parent_2.12/3.5.0/ivys/ivy.xml
+
+	  -- artifact org.apache.spark#spark-parent_2.12;3.5.0!spark-parent_2.12.jar:
+
+	  /root/.ivy2/local/org.apache.spark/spark-parent_2.12/3.5.0/jars/spark-parent_2.12.jar
+
+	==== central: tried
+
+	  https://repo1.maven.org/maven2/org/apache/spark/spark-parent_2.12/3.5.0/spark-parent_2.12-3.5.0.pom
+
+	==== spark-packages: tried
+
+	  https://repos.spark-packages.org/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.pom
+
+	  -- artifact org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0!spark-sql-kafka-0-10_2.12.jar:
+
+	  https://repos.spark-packages.org/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.jar
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		::          UNRESOLVED DEPENDENCIES         ::
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		:: org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0: not found
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+Exception in thread "main" java.lang.RuntimeException: [unresolved dependency: org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0: not found]
+	at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:1537)
+	at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:185)
+	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:334)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:964)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)

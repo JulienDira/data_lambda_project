@@ -200,16 +200,16 @@ services:
     container_name: consumer-raw
     build:
       context: .
-      dockerfile: Dockerfile.consumer-raw
+      dockerfile: consumer-raw/Dockerfile.consumer-raw
     volumes:
-      - ./consumer-raw.py:/app/consumer-raw.py
+      - ./consumer-raw/consumer-raw.py:/app/consumer-raw.py
       - ./data_lake:/app/data_lake
       - ./log:/app/log
       # - spark_longtime_data:/spark-data
     # depends_on:
     #   - broker
     # command: python3 /app/consumer_transaction_log.py
-    command: ["./entrypoint_raw.sh"] 
+    command: ["./consumer-raw/entrypoint_raw.sh"] 
     deploy:
       resources:
         limits:
@@ -225,12 +225,12 @@ services:
     container_name: consumer-table
     build:
       context: .
-      dockerfile: Dockerfile.consumer-table
+      dockerfile: consumer-table/Dockerfile.consumer-table
     volumes:
-      - ./consumer-table.py:/app/consumer-table.py
+      - ./consumer-table/consumer-table.py:/app/consumer-table.py
       - ./data_lake:/app/data_lake
       - ./log:/app/log
-    command: ["./entrypoint_table.sh"] 
+    command: ["./consumer-table/entrypoint_table.sh"] 
     deploy:
       resources:
         limits:
