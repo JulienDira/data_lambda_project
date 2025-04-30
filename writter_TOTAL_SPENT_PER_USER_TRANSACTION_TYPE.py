@@ -12,9 +12,10 @@ def configure_logger(topic):
     logger.setLevel(logging.INFO)
     return logger
 
+end_file_path = 'test'
 
 # Configuration du logging
-kafka_topic = 'ALL_TRANSACTIONS_FLATTENED'
+kafka_topic = 'TOTAL_SPENT_PER_USER_TRANSACTION_TYPE'
 logger = configure_logger(kafka_topic)
 
 logger.info("Lancement de l'application Spark Streaming...")
@@ -28,33 +29,8 @@ spark = SparkSession.builder \
 logger.info("Session Spark créée.")
 
 schema = StructType([
-    StructField("TRANSACTION_ID", StringType(), True),
-    StructField("TIMESTAMP", StringType(), True),
-    StructField("USER_ID", StringType(), True),
-    StructField("USER_NAME", StringType(), True),
-    StructField("PRODUCT_ID", StringType(), True),
-    StructField("AMOUNT", DoubleType(), True),
-    StructField("CURRENCY", StringType(), True),
-    StructField("TRANSACTION_TYPE", StringType(), True),
-    StructField("STATUS", StringType(), True),
-    StructField("CITY", StringType(), True),
-    StructField("COUNTRY", StringType(), True),
-    StructField("PAYMENT_METHOD", StringType(), True),
-    StructField("PRODUCT_CATEGORY", StringType(), True),
-    StructField("QUANTITY", IntegerType(), True),
-    StructField("SHIPPING_STREET", StringType(), True),
-    StructField("SHIPPING_ZIP", StringType(), True),
-    StructField("SHIPPING_CITY", StringType(), True),
-    StructField("SHIPPING_COUNTRY", StringType(), True),
-    StructField("DEVICE_OS", StringType(), True),
-    StructField("DEVICE_BROWSER", StringType(), True),
-    StructField("DEVICE_IP", StringType(), True),
-    StructField("CUSTOMER_RATING", IntegerType(), True),
-    StructField("DISCOUNT_CODE", StringType(), True),
-    StructField("TAX_AMOUNT", DoubleType(), True),
-    StructField("THREAD", IntegerType(), True),
-    StructField("MESSAGE_NUMBER", IntegerType(), True),
-    StructField("TIMESTAMP_OF_RECEPTION_LOG", StringType(), True)
+    StructField("KSQL_COL_0", StringType(), True),
+    StructField("TOTAL_SPENT", DoubleType(), True)
 ])
 
 logger.info("Schéma du message défini pour les données flattened.")
@@ -102,8 +78,8 @@ logger.info("Initialisation de l'écriture en Parquet...")
 
 query = df_bronze.writeStream \
     .format("parquet") \
-    .option("checkpointLocation", "./checkpoints") \
-    .option("path", "/app/data_lake/transaction_flattened") \
+    .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
+    .option("path", f"/app/data_lake/{end_file_path}") \
     .partitionBy("ingestion_date") \
     .outputMode("append") \
     .start()
@@ -112,3 +88,19 @@ logger.info("L'écriture en Parquet a démarré. En attente des messages...")
 
 # Maintient l'application en vie
 query.awaitTermination()
+
+# # Configuration JDBC pour PostgreSQL
+# postgres_url = "jdbc:postgresql://your_postgres_host:5432/your_db"
+# postgres_properties = {
+#     "user": "your_user",
+#     "password": "your_password",
+#     "driver": "org.postgresql.Driver"
+# }
+
+# # Spécifiez le mode d'écriture (append, overwrite, etc.)
+# kafka_stream_df.writeStream \
+#     .foreachBatch(lambda df, epoch_id: df.write \
+#         .jdbc(postgres_url, "your_table_name", mode="append", properties=postgres_properties)) \
+#     .outputMode("append") \
+#     .start() \
+#     .awaitTermination()

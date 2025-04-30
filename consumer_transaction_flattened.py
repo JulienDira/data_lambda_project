@@ -12,6 +12,7 @@ def configure_logger(topic):
     logger.setLevel(logging.INFO)
     return logger
 
+end_file_path = 'transaction_flattened'
 
 # Configuration du logging
 kafka_topic = 'ALL_TRANSACTIONS_FLATTENED'
@@ -102,8 +103,8 @@ logger.info("Initialisation de l'écriture en Parquet...")
 
 query = df_bronze.writeStream \
     .format("parquet") \
-    .option("checkpointLocation", "./checkpoints") \
-    .option("path", "/app/data_lake/transaction_flattened") \
+    .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
+    .option("path", f"/app/data_lake/{end_file_path}") \
     .partitionBy("ingestion_date") \
     .outputMode("append") \
     .start()

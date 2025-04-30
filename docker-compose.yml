@@ -210,9 +210,27 @@ services:
     #   - broker
     # command: python3 /app/consumer_transaction_log.py
     command: ["./entrypoint_raw.sh"] 
-    # networks:
-    #   - default
-    #   - Projet2BigData
+    deploy:
+      resources:
+        limits:
+          memory: 4g  # Limite à 4 Go de mémoire
+          cpus: '1.0'  # Limite à 2 cœurs CPU
+        reservations:
+          memory: 2g  # Réservation de mémoire à 2 Go
+          cpus: '1.0'  # Réservation de 1 cœur CPU
+    networks:
+      - streaming_default
+
+  consumer-table:
+    container_name: consumer-table
+    build:
+      context: .
+      dockerfile: Dockerfile.consumer-table
+    volumes:
+      - ./consumer-table.py:/app/consumer-table.py
+      - ./data_lake:/app/data_lake
+      - ./log:/app/log
+    command: ["./entrypoint_table.sh"] 
     deploy:
       resources:
         limits:
