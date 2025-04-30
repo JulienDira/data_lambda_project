@@ -18,6 +18,13 @@ end_file_path = 'test'
 kafka_topic = 'TOTAL_SPENT_PER_USER_TRANSACTION_TYPE'
 logger = configure_logger(kafka_topic)
 
+postgres_url = "jdbc:postgresql://100.117.134.55:30432/PROJECT_STREAMING"
+postgres_properties = {
+    "user": "admin",
+    "password": "admin",
+    "driver": "org.postgresql.Driver"
+}
+
 logger.info("Lancement de l'application Spark Streaming...")
 
 # Crée la session Spark
@@ -76,31 +83,35 @@ logger.info("Démarrage de l'écriture en console pour le debug.")
 # Écriture en fichiers Parquet
 logger.info("Initialisation de l'écriture en Parquet...")
 
-query = df_bronze.writeStream \
-    .format("parquet") \
-    .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
-    .option("path", f"/app/data_lake/{end_file_path}") \
-    .partitionBy("ingestion_date") \
-    .outputMode("append") \
+# query = df_bronze.writeStream \
+#     .format("parquet") \
+#     .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
+#     .option("path", f"/app/data_lake/{end_file_path}") \
+#     .partitionBy("ingestion_date") \
+#     .outputMode("append") \
+#     .start()
+
+# Configuration JDBC pour PostgreSQL
+
+# Spécifiez le mode d'écriture (append, overwrite, etc.)
+query = (
+    df_bronze
+    .writeStream 
+    .foreachBatch(
+        lambda df, epoch_id: df.write
+            .mode("overwrite")  # remplace les données à chaque micro-batch
+            .option("truncate", "true")  # évite de drop/recreate, juste un truncate
+            .jdbc(postgres_url, kafka_topic, properties=postgres_properties)
+    )
+    .outputMode("append")  # nécessaire pour le streaming, même si le batch fait un overwrite
     .start()
+    .awaitTermination()
+)
+
 
 logger.info("L'écriture en Parquet a démarré. En attente des messages...")
 
 # Maintient l'application en vie
 query.awaitTermination()
 
-# # Configuration JDBC pour PostgreSQL
-# postgres_url = "jdbc:postgresql://your_postgres_host:5432/your_db"
-# postgres_properties = {
-#     "user": "your_user",
-#     "password": "your_password",
-#     "driver": "org.postgresql.Driver"
-# }
 
-# # Spécifiez le mode d'écriture (append, overwrite, etc.)
-# kafka_stream_df.writeStream \
-#     .foreachBatch(lambda df, epoch_id: df.write \
-#         .jdbc(postgres_url, "your_table_name", mode="append", properties=postgres_properties)) \
-#     .outputMode("append") \
-#     .start() \
-#     .awaitTermination()
