@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+JARS_PATH="/spark/jars"
+JARS=$(find $JARS_PATH -name "*.jar" | paste -sd "," -)
+
 # Configuration des packages Kafka pour Spark
 KAFKA_PACKAGES="org.apache.spark:spark-sql-kafka-0-10_2.12:${SPARK_VERSION},org.apache.kafka:kafka-clients:${SPARK_KAFKA_VERSION},org.apache.commons:commons-pool2:2.11.1"
 
@@ -15,9 +18,9 @@ mkdir -p /app/log
 echo "Démarrage de consumer_transaction_log.py"
 /opt/spark/bin/spark-submit \
   --master local[*] \
-  --packages "${KAFKA_PACKAGES}" \
-  --conf "spark.executor.extraClassPath=/opt/spark/jars/*" \
-  --conf "spark.driver.extraClassPath=/opt/spark/jars/*" \
+  --jars "$JARS" \
+  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
+  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
   --conf "spark.executor.memory=2g" \
   --conf "spark.driver.memory=2g" \
   consumer_transaction_log.py >> /app/log/consumer_transaction_log.log 2>&1 &
@@ -25,9 +28,9 @@ echo "Démarrage de consumer_transaction_log.py"
 echo "Démarrage de consumer_transaction_flattened.py"
 /opt/spark/bin/spark-submit \
   --master local[*] \
-  --packages "${KAFKA_PACKAGES}" \
-  --conf "spark.executor.extraClassPath=/opt/spark/jars/*" \
-  --conf "spark.driver.extraClassPath=/opt/spark/jars/*" \
+  --jars "$JARS" \
+  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
+  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
   --conf "spark.executor.memory=2g" \
   --conf "spark.driver.memory=2g" \
   consumer_transaction_flattened.py >> /app/log/consumer_transaction_flattened.log 2>&1 &

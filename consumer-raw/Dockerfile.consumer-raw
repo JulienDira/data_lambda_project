@@ -35,7 +35,7 @@ ENV SPARK_VERSION=3.5.0
 ENV SPARK_JARS_DIR=/spark/jars
 
 # Copier les fichiers de l'application
-COPY ./ /app/
+COPY ./consumer-raw/ /app/
 
 # Définir le répertoire de travail
 WORKDIR /app
