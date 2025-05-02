@@ -18,7 +18,7 @@ end_file_path = 'test'
 kafka_topic = 'TOTAL_SPENT_PER_USER_TRANSACTION_TYPE'
 logger = configure_logger(kafka_topic)
 
-postgres_url = "jdbc:postgresql://100.117.134.55:30432/PROJECT_STREAMING"
+postgres_url = "jdbc:postgresql://100.117.134.55:30432/project_streaming"
 postgres_properties = {
     "user": "admin",
     "password": "admin",
@@ -53,10 +53,6 @@ df_raw = spark.readStream \
     .load()
 
 logger.info("Connexion à Kafka réussie. Lecture des messages en streaming.")
-
-# df_parsed = df_raw.selectExpr("CAST(value AS STRING) as json_value") \
-#     .select(from_json(col("json_value"), schema=None).alias("data")) \
-#     .select("data.*")
     
 df_bronze = df_raw.selectExpr(
     "CAST(value AS STRING) as json_value"
@@ -80,20 +76,9 @@ df_bronze.printSchema()
 
 logger.info("Démarrage de l'écriture en console pour le debug.")
 
-# Écriture en fichiers Parquet
-logger.info("Initialisation de l'écriture en Parquet...")
+# Écriture sur serveur postgresql
+logger.info("Initialisation de l'écriture vers postgresql...")
 
-# query = df_bronze.writeStream \
-#     .format("parquet") \
-#     .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
-#     .option("path", f"/app/data_lake/{end_file_path}") \
-#     .partitionBy("ingestion_date") \
-#     .outputMode("append") \
-#     .start()
-
-# Configuration JDBC pour PostgreSQL
-
-# Spécifiez le mode d'écriture (append, overwrite, etc.)
 query = (
     df_bronze
     .writeStream 
@@ -109,7 +94,7 @@ query = (
 )
 
 
-logger.info("L'écriture en Parquet a démarré. En attente des messages...")
+logger.info("L'écriture vers postgresql a démarrée. En attente des messages...")
 
 # Maintient l'application en vie
 query.awaitTermination()
