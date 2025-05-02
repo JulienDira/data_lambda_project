@@ -13,8 +13,6 @@ def configure_logger(topic):
     logger.setLevel(logging.INFO)
     return logger
 
-end_file_path  = 'transaction_log'
-
 # Configuration du logging
 kafka_topic = 'transaction_log'
 logger = configure_logger(kafka_topic)
@@ -29,52 +27,6 @@ spark = SparkSession.builder \
 
 logger.info("Session Spark créée.")
 
-# Schéma des structures imbriquées
-# location_schema = StructType([
-#     StructField("city", StringType(), True),
-#     StructField("country", StringType(), True)
-# ])
-
-# shipping_address_schema = StructType([
-#     StructField("street", StringType(), True),
-#     StructField("zip", StringType(), True),
-#     StructField("city", StringType(), True),
-#     StructField("country", StringType(), True)
-# ])
-
-# device_info_schema = StructType([
-#     StructField("os", StringType(), True),
-#     StructField("browser", StringType(), True),
-#     StructField("ip_address", StringType(), True)
-# ])
-
-# # Schéma complet du message
-# schema = StructType([
-#     StructField("transaction_id", StringType(), True),
-#     StructField("timestamp", StringType(), True),
-#     StructField("user_id", StringType(), True),
-#     StructField("user_name", StringType(), True),
-#     StructField("product_id", StringType(), True),
-#     StructField("amount", DoubleType(), True),
-#     StructField("currency", StringType(), True),
-#     StructField("transaction_type", StringType(), True),
-#     StructField("status", StringType(), True),
-#     StructField("location", location_schema, True),
-#     StructField("payment_method", StringType(), True),
-#     StructField("product_category", StringType(), True),
-#     StructField("quantity", IntegerType(), True),
-#     StructField("shipping_address", shipping_address_schema, True),
-#     StructField("device_info", device_info_schema, True),
-#     StructField("customer_rating", IntegerType(), True),
-#     StructField("discount_code", StringType(), True),
-#     StructField("tax_amount", DoubleType(), True),
-#     StructField("thread", IntegerType(), True),
-#     StructField("message_number", IntegerType(), True),
-#     StructField("timestamp_of_reception_log", StringType(), True)
-# ])
-
-# logger.info("Schéma du message défini.")
-
 # Lecture des messages Kafka
 logger.info("Tentative de connexion à Kafka sur broker:29092 et abonnement au topic 'transaction_log'.")
 
@@ -84,12 +36,20 @@ df_raw = spark.readStream \
     .option("subscribe", kafka_topic) \
     .option("startingOffsets", "earliest") \
     .load()
+    
+logger.info("Données chargées avec succès.")
+logger.info("Vérification du format initial.")       
+
+(
+    df_raw
+    .selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)") \
+    .writeStream \
+    .format("console") \
+    .outputMode("append") \
+    .start()
+)
 
 logger.info("Connexion à Kafka réussie. Lecture des messages en streaming.")
-
-# df_parsed = df_raw.selectExpr("CAST(value AS STRING) as json_value") \
-#     .select(from_json(col("json_value"), schema=None).alias("data")) \
-#     .select("data.*")
     
 df_bronze = df_raw.selectExpr(
     "CAST(value AS STRING) as json_value",
@@ -117,8 +77,8 @@ logger.info("Initialisation de l'écriture en Parquet...")
 
 query = df_bronze.writeStream \
     .format("parquet") \
-    .option("checkpointLocation", f"./checkpoints/{end_file_path}") \
-    .option("path", f"/app/data_lake/{end_file_path}") \
+    .option("checkpointLocation", f"./checkpoints/{kafka_topic}") \
+    .option("path", f"/app/data_lake/{kafka_topic}") \
     .partitionBy("ingestion_date") \
     .outputMode("append") \
     .start()

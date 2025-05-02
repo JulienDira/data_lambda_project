@@ -15,55 +15,18 @@ echo "=== Démarrage des applications Spark ==="
 # Créer le répertoire de logs s'il n'existe pas
 mkdir -p /app/log
 
-echo "Démarrage de AMOUNT_PER_TYPE_WINDOWED.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-table/writter_AMOUNT_PER_TYPE_WINDOWED.py >> /app/log/writter/AMOUNT_PER_TYPE_WINDOWED.log 2>&1 &
-
-echo "Démarrage de writter_COUNT_NUMB_BUY_PER_PRODUCT.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-table/writter_COUNT_NUMB_BUY_PER_PRODUCT.py >> /app/log/writter/COUNT_NUMB_BUY_PER_PRODUCT.log 2>&1 &
-
-echo "Démarrage de writter_TOTAL_SPENT_PER_USER_TRANSACTION_TYPE.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-table/writter_TOTAL_SPENT_PER_USER_TRANSACTION_TYPE.py >> /app/log/writter/TOTAL_SPENT_PER_USER_TRANSACTION_TYPE.log 2>&1 &
-
-echo "Démarrage de writter_TOTAL_TRANSACTION_AMOUNT_PER_PAYMENT_METHOD.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-table/writter_TOTAL_TRANSACTION_AMOUNT_PER_PAYMENT_METHOD.py >> /app/log/writter/TOTAL_TRANSACTION_AMOUNT_PER_PAYMENT_METHOD.log 2>&1 &
-
-echo "Démarrage de writter_TRANSACTION_STATUS_EVOLUTION.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-table/writter_TRANSACTION_STATUS_EVOLUTION.py >> /app/log/writter/TRANSACTION_STATUS_EVOLUTION.log 2>&1 &
+# Parcours tous les fichiers .py dans le répertoire /app/consumer-table/
+for PY_FILE in /app/consumer-table/*.py; do
+  echo "Démarrage de $(basename $PY_FILE)"
+  /opt/spark/bin/spark-submit \
+    --master local[*] \
+    --jars "$JARS" \
+    --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
+    --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
+    --conf "spark.executor.memory=2g" \
+    --conf "spark.driver.memory=2g" \
+    $PY_FILE >> /app/log/consumer/$(basename $PY_FILE .py).log 2>&1 &
+done
 
 echo "=== Les jobs Spark Streaming sont en cours d'exécution ==="
 echo "=== Logs disponibles dans le répertoire /app/log ==="

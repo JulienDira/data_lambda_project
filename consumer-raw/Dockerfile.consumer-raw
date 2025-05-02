@@ -41,7 +41,7 @@ COPY ./consumer-raw/ /app/consumer-raw/
 WORKDIR /app
 
 # Rendre le script de démarrage exécutable
-RUN chmod +x /app/entrypoint_raw.sh
+RUN chmod +x /app/consumer-raw/entrypoint_raw.sh
 
 # Définir le point d'entrée du conteneur
-ENTRYPOINT ["./entrypoint_raw.sh"]
+ENTRYPOINT ["/app/consumer-raw/entrypoint_raw.sh"]

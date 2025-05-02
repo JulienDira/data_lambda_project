@@ -13,7 +13,7 @@ def configure_logger(topic):
     return logger
 
 # Configuration du logging
-kafka_topic = 'AMOUNT_PER_TYPE_WINDOWED'
+kafka_topic = 'TOTAL_PAR_TRANSACTION_TYPE'
 logger = configure_logger(kafka_topic)
 
 postgres_url = "jdbc:postgresql://100.117.134.55:30432/project_streaming"
@@ -39,8 +39,6 @@ logger.info(f"Tentative de connexion à Kafka sur broker:29092 et abonnement au 
 
 primary_key = 'TRANSACTION_TYPE'
 value_schema = StructType([
-    StructField("WINDOW_START", LongType(), True),
-    StructField("WINDOW_END", LongType(), True),
     StructField("TOTAL_AMOUNT", DoubleType(), True)
 ])
 

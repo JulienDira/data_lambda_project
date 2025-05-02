@@ -15,32 +15,28 @@ echo "=== Démarrage des applications Spark ==="
 # Créer le répertoire de logs s'il n'existe pas
 mkdir -p /app/log
 
-echo "Démarrage de consumer_transaction_log.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-raw/consumer_transaction_log.py >> /app/log/consumer/transaction_log.log 2>&1 &
+# Parcours tous les fichiers .py dans le répertoire /app/consumer-raw/
+for PY_FILE in /app/consumer-raw/*.py; do
+  BASENAME=$(basename "$PY_FILE")
+  if [ "$BASENAME" = "common_function.py" ]; then
+    continue  # Ignore ce fichier
+  fi
 
-echo "Démarrage de consumer_transaction_flattened.py"
-/opt/spark/bin/spark-submit \
-  --master local[*] \
-  --jars "$JARS" \
-  --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
-  --conf "spark.executor.memory=2g" \
-  --conf "spark.driver.memory=2g" \
-  ./consumer-raw/consumer_transaction_flattened.py >> /app/log/consumer/transaction_flattened.log 2>&1 &
+  echo "Démarrage de $BASENAME"
+  /opt/spark/bin/spark-submit \
+    --master local[*] \
+    --jars "$JARS" \
+    --conf "spark.executor.extraClassPath=${JARS_PATH}/*" \
+    --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
+    --conf "spark.executor.memory=2g" \
+    --conf "spark.driver.memory=2g" \
+    "$PY_FILE" >> /app/log/consumer/"$(basename "$PY_FILE" .py)".log 2>&1 &
+done
+
 
 echo "=== Les jobs Spark Streaming sont en cours d'exécution ==="
 echo "=== Logs disponibles dans le répertoire /app/log ==="
 echo "=== Conteneur actif ==="
-
-# Afficher les logs en temps réel (optionnel)
-# tail -f /app/log/*.log
 
 # Garder le conteneur en vie
 tail -f /dev/null

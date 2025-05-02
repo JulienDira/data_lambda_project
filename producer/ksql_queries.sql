@@ -192,10 +192,6 @@ SELECT
 FROM transaction_log_stream
 GROUP BY transaction_id;
 
- CREATE TABLE transaction_status_evolution (
-  transaction_id VARCHAR PRIMARY KEY,
-  latest_status VARCHAR
- ) WITH (KAFKA_TOPIC='transaction_log', VALUE_FORMAT='JSON');
 
 CREATE TABLE amount_per_type_windowed AS
  SELECT 

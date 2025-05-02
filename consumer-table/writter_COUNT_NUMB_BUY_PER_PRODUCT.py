@@ -29,42 +29,65 @@ logger.info("Lancement de l'application Spark Streaming...")
 spark = SparkSession.builder \
     .appName(f"KafkaConsumer_{kafka_topic}") \
     .master("local[*]") \
+    .config("spark.sql.caseSensitive", "true") \
     .getOrCreate()
 
 logger.info("Session Spark créée.")
 
-schema = StructType([
-    StructField("PRODUCT_ID", StringType(), True),
+# Lecture des messages Kafka
+logger.info(f"Tentative de connexion à Kafka sur broker:29092 et abonnement au topic {kafka_topic}.")
+
+primary_key = 'PRODUCT_ID'
+value_schema = StructType([
     StructField("TOTAL_QUANTITY", IntegerType(), True)
 ])
 
-logger.info("Schéma du message défini pour les données flattened.")
+logger.info("Schémas définis pour la clé et la valeur.")
 
-# Lecture des messages Kafka
-logger.info("Tentative de connexion à Kafka sur broker:29092 et abonnement au topic 'transaction_log'.")
-
+# Lecture des messages Kafka avec les schémas définis pour la clé et la valeur
 df_raw = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "broker:29092") \
     .option("subscribe", kafka_topic) \
     .option("startingOffsets", "earliest") \
-    .load()
+    .option("keyDeserializer", "org.apache.kafka.common.serialization.StringDeserializer") \
+    .option("valueDeserializer", "org.apache.kafka.common.serialization.StringDeserializer") \
+    .load() \
 
-logger.info("Connexion à Kafka réussie. Lecture des messages en streaming.")
+logger.info("Données chargées avec succès.")
+logger.info("Vérification du format initial.")       
+
+(
+    df_raw
+    .selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)") \
+    .writeStream \
+    .format("console") \
+    .outputMode("append") \
+    .start()
+)
+
+logger.info("Données en cours de transformation...") 
     
-df_bronze = df_raw.selectExpr(
-    "CAST(value AS STRING) as json_value"
-)   .select(from_json(col("json_value"), schema=schema).alias("data")) \
-    .select("data.*") \
+df_parsed = (
+    df_raw
+    .select(
+        # Traiter la clé comme un TRANSACTION_TYPE
+        col("key").cast(StringType()).alias(primary_key),
+        # Désérialiser le JSON de la valeur selon le schéma défini
+        from_json(col("value").cast(StringType()), value_schema).alias("data")
+    ) \
+    .select(primary_key, "data.*") \
     .withColumn("ingestion_time", current_timestamp()) \
     .withColumn("ingestion_date", to_date(col("ingestion_time")))
+)
 
-logger.info("Transformation JSON des messages terminée. Schéma résultant :")
-df_bronze.printSchema()
+logger.info("Données parsée avec succès !!!")
+df_parsed.printSchema()
 
+logger.info("Vérification des données chargées :") 
 # Affichage des premiers enregistrements dans la console (pour debug uniquement, facultatif)
 (
-    df_bronze.writeStream
+    df_parsed.writeStream
     .format("console")
     .outputMode("append")
     .option("truncate", False)
@@ -78,7 +101,7 @@ logger.info("Démarrage de l'écriture en console pour le debug.")
 logger.info("Initialisation de l'écriture vers postgresql...")
 
 query = (
-    df_bronze
+    df_parsed
     .writeStream 
     .foreachBatch(
         lambda df, epoch_id: df.write
