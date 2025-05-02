@@ -1,3 +1,20 @@
+CREATE STREAM transactions_stream (
+ transaction_id STRING, 
+ amount DOUBLE, 
+ transaction_type STRING
+) WITH (
+ KAFKA_TOPIC='transaction_log', 
+ VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM transactions_importantes_700 AS 
+SELECT * FROM transactions_stream WHERE amount > 700;
+
+CREATE TABLE total_par_transaction_type AS 
+SELECT transaction_type, SUM(amount) AS total_amount 
+FROM transactions_stream 
+GROUP BY transaction_type;
+
 CREATE STREAM all_transactions (
   transaction_id VARCHAR,
   timestamp VARCHAR,
