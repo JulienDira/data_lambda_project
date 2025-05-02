@@ -23,8 +23,8 @@ logger.info("Lancement de l'application Spark Streaming...")
 
 # Crée la session Spark
 spark = SparkSession.builder \
-    .appName("KafkaConsumer") \
-    .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0") \
+    .appName(f"KafkaConsumer_{kafka_topic}") \
+    .master("local[*]") \
     .getOrCreate()
 
 logger.info("Session Spark créée.")

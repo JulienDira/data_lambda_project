@@ -202,13 +202,9 @@ services:
       context: .
       dockerfile: consumer-raw/Dockerfile.consumer-raw
     volumes:
-      - ./consumer-raw/consumer-raw.py:/app/consumer-raw.py
+      - ./consumer-raw:/app/consumer-raw
       - ./data_lake:/app/data_lake
       - ./log:/app/log
-      # - spark_longtime_data:/spark-data
-    # depends_on:
-    #   - broker
-    # command: python3 /app/consumer_transaction_log.py
     command: ["./consumer-raw/entrypoint_raw.sh"] 
     deploy:
       resources:
@@ -227,7 +223,7 @@ services:
       context: .
       dockerfile: consumer-table/Dockerfile.consumer-table
     volumes:
-      - ./consumer-table/consumer-table.py:/app/consumer-table.py
+      - ./consumer-table:/app/consumer-table
       - ./data_lake:/app/data_lake
       - ./log:/app/log
     command: ["./consumer-table/entrypoint_table.sh"] 

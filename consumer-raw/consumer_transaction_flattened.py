@@ -22,7 +22,8 @@ logger.info("Lancement de l'application Spark Streaming...")
 
 # Crée la session Spark
 spark = SparkSession.builder \
-    .appName("KafkaConsumer") \
+    .appName(f"KafkaConsumer_{kafka_topic}") \
+    .master("local[*]") \
     .getOrCreate()
 
 logger.info("Session Spark créée.")
@@ -70,10 +71,6 @@ df_raw = spark.readStream \
     .load()
 
 logger.info("Connexion à Kafka réussie. Lecture des messages en streaming.")
-
-# df_parsed = df_raw.selectExpr("CAST(value AS STRING) as json_value") \
-#     .select(from_json(col("json_value"), schema=None).alias("data")) \
-#     .select("data.*")
     
 df_bronze = df_raw.selectExpr(
     "CAST(value AS STRING) as json_value"

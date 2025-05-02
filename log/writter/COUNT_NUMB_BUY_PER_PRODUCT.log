@@ -1,0 +1,704 @@
+25/05/02 12:23:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2025-05-02 12:23:37,961 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Lancement de l'application Spark Streaming...
+25/05/02 12:23:39 INFO SparkContext: Running Spark version 3.5.0
+25/05/02 12:23:39 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/05/02 12:23:39 INFO SparkContext: Java version 11.0.24
+25/05/02 12:23:40 INFO ResourceUtils: ==============================================================
+25/05/02 12:23:40 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/05/02 12:23:40 INFO ResourceUtils: ==============================================================
+25/05/02 12:23:40 INFO SparkContext: Submitted application: KafkaConsumer_COUNT_NUMB_BUY_PER_PRODUCT
+25/05/02 12:23:40 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 2048, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/05/02 12:23:40 INFO ResourceProfile: Limiting resource is cpu
+25/05/02 12:23:40 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/05/02 12:23:41 INFO SecurityManager: Changing view acls to: root
+25/05/02 12:23:41 INFO SecurityManager: Changing modify acls to: root
+25/05/02 12:23:41 INFO SecurityManager: Changing view acls groups to: 
+25/05/02 12:23:41 INFO SecurityManager: Changing modify acls groups to: 
+25/05/02 12:23:41 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/05/02 12:23:47 INFO Utils: Successfully started service 'sparkDriver' on port 34757.
+25/05/02 12:23:47 INFO SparkEnv: Registering MapOutputTracker
+25/05/02 12:23:48 INFO SparkEnv: Registering BlockManagerMaster
+25/05/02 12:23:49 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/05/02 12:23:49 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/05/02 12:23:49 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/05/02 12:23:49 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b8fdd18b-cbcf-44c9-98af-6c106d3d8822
+25/05/02 12:23:50 INFO MemoryStore: MemoryStore started with capacity 1007.8 MiB
+25/05/02 12:23:50 INFO SparkEnv: Registering OutputCommitCoordinator
+25/05/02 12:23:52 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/05/02 12:23:53 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+25/05/02 12:23:53 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+25/05/02 12:23:53 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+25/05/02 12:23:53 WARN Utils: Service 'SparkUI' could not bind on port 4043. Attempting port 4044.
+25/05/02 12:23:53 INFO Utils: Successfully started service 'SparkUI' on port 4044.
+25/05/02 12:23:53 INFO SparkContext: Added JAR file:///spark/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar at spark://527046c18d8d:34757/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1746188618956
+25/05/02 12:23:53 INFO SparkContext: Added JAR file:///spark/jars/kafka-clients-3.3.1.jar at spark://527046c18d8d:34757/jars/kafka-clients-3.3.1.jar with timestamp 1746188618956
+25/05/02 12:23:53 INFO SparkContext: Added JAR file:///spark/jars/commons-pool2-2.11.1.jar at spark://527046c18d8d:34757/jars/commons-pool2-2.11.1.jar with timestamp 1746188618956
+25/05/02 12:23:53 INFO SparkContext: Added JAR file:///spark/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar at spark://527046c18d8d:34757/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1746188618956
+25/05/02 12:23:53 INFO SparkContext: Added JAR file:///spark/jars/postgresql-42.2.23.jar at spark://527046c18d8d:34757/jars/postgresql-42.2.23.jar with timestamp 1746188618956
+25/05/02 12:23:55 INFO Executor: Starting executor ID driver on host 527046c18d8d
+25/05/02 12:23:55 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/05/02 12:23:55 INFO Executor: Java version 11.0.24
+25/05/02 12:23:55 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): 'file:/spark/jars/*,file:/app/*'
+25/05/02 12:23:55 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@598130d for default.
+25/05/02 12:23:56 INFO Executor: Fetching spark://527046c18d8d:34757/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1746188618956
+25/05/02 12:23:56 INFO TransportClientFactory: Successfully created connection to 527046c18d8d/172.21.0.11:34757 after 402 ms (0 ms spent in bootstraps)
+25/05/02 12:23:57 INFO Utils: Fetching spark://527046c18d8d:34757/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/fetchFileTemp6176078797538199213.tmp
+25/05/02 12:23:58 INFO Executor: Adding file:/tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/spark-sql-kafka-0-10_2.12-3.5.0.jar to class loader default
+25/05/02 12:23:58 INFO Executor: Fetching spark://527046c18d8d:34757/jars/commons-pool2-2.11.1.jar with timestamp 1746188618956
+25/05/02 12:23:58 INFO Utils: Fetching spark://527046c18d8d:34757/jars/commons-pool2-2.11.1.jar to /tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/fetchFileTemp12273236669466132011.tmp
+25/05/02 12:23:58 INFO Executor: Adding file:/tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/commons-pool2-2.11.1.jar to class loader default
+25/05/02 12:23:58 INFO Executor: Fetching spark://527046c18d8d:34757/jars/postgresql-42.2.23.jar with timestamp 1746188618956
+25/05/02 12:23:58 INFO Utils: Fetching spark://527046c18d8d:34757/jars/postgresql-42.2.23.jar to /tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/fetchFileTemp11070715147382287714.tmp
+25/05/02 12:23:58 INFO Executor: Adding file:/tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/postgresql-42.2.23.jar to class loader default
+25/05/02 12:23:58 INFO Executor: Fetching spark://527046c18d8d:34757/jars/kafka-clients-3.3.1.jar with timestamp 1746188618956
+25/05/02 12:23:58 INFO Utils: Fetching spark://527046c18d8d:34757/jars/kafka-clients-3.3.1.jar to /tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/fetchFileTemp3084313195165501576.tmp
+25/05/02 12:23:59 INFO Executor: Adding file:/tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/kafka-clients-3.3.1.jar to class loader default
+25/05/02 12:23:59 INFO Executor: Fetching spark://527046c18d8d:34757/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1746188618956
+25/05/02 12:23:59 INFO Utils: Fetching spark://527046c18d8d:34757/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/fetchFileTemp11083459147917100376.tmp
+25/05/02 12:23:59 INFO Executor: Adding file:/tmp/spark-4b5a1524-012c-485b-8a2d-d43825db40f0/userFiles-0bcd8698-deaf-4e9b-9803-1ac32e7e9372/spark-token-provider-kafka-0-10_2.12-3.5.0.jar to class loader default
+25/05/02 12:23:59 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 46841.
+25/05/02 12:23:59 INFO NettyBlockTransferService: Server created on 527046c18d8d:46841
+25/05/02 12:23:59 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/05/02 12:23:59 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 527046c18d8d, 46841, None)
+25/05/02 12:23:59 INFO BlockManagerMasterEndpoint: Registering block manager 527046c18d8d:46841 with 1007.8 MiB RAM, BlockManagerId(driver, 527046c18d8d, 46841, None)
+25/05/02 12:23:59 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 527046c18d8d, 46841, None)
+25/05/02 12:23:59 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 527046c18d8d, 46841, None)
+2025-05-02 12:24:03,450 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Session Spark créée.
+2025-05-02 12:24:03,450 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Schéma du message défini pour les données flattened.
+2025-05-02 12:24:03,451 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Tentative de connexion à Kafka sur broker:29092 et abonnement au topic 'transaction_log'.
+25/05/02 12:24:03 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/05/02 12:24:03 INFO SharedState: Warehouse path is 'file:/app/spark-warehouse'.
+2025-05-02 12:24:18,950 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Connexion à Kafka réussie. Lecture des messages en streaming.
+2025-05-02 12:24:25,048 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Transformation JSON des messages terminée. Schéma résultant :
+root
+ |-- PRODUCT_ID: string (nullable = true)
+ |-- TOTAL_QUANTITY: integer (nullable = true)
+ |-- ingestion_time: timestamp (nullable = false)
+ |-- ingestion_date: date (nullable = false)
+
+25/05/02 12:24:25 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+25/05/02 12:24:25 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+25/05/02 12:24:26 INFO ResolveWriteToStream: Checkpoint root file:///tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4 resolved to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4.
+25/05/02 12:24:26 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+25/05/02 12:24:26 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/metadata using temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/.metadata.a5980faf-6859-4f32-8c69-1aabbe40f4e1.tmp
+25/05/02 12:24:27 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/.metadata.a5980faf-6859-4f32-8c69-1aabbe40f4e1.tmp to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/metadata
+25/05/02 12:24:27 INFO MicroBatchExecution: Starting [id = 1a1a745d-3e46-483b-ab9c-312efc3856a6, runId = 8d1ff7cf-0bc8-4f3d-8a6f-0b72b8f31cd9]. Use file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4 to store the query checkpoint.
+2025-05-02 12:24:28,048 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Démarrage de l'écriture en console pour le debug.
+2025-05-02 12:24:28,048 - COUNT_NUMB_BUY_PER_PRODUCT - INFO - Initialisation de l'écriture vers postgresql...
+25/05/02 12:24:28 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@11bde28] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@592c317b]
+25/05/02 12:24:28 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+25/05/02 12:24:28 INFO ResolveWriteToStream: Checkpoint root file:///tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8 resolved to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8.
+25/05/02 12:24:28 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+25/05/02 12:24:28 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/metadata using temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/.metadata.c38708e8-793f-4c7b-b98f-f3da489402b1.tmp
+25/05/02 12:24:28 INFO OffsetSeqLog: BatchIds found from listing: 
+25/05/02 12:24:28 INFO OffsetSeqLog: BatchIds found from listing: 
+25/05/02 12:24:28 INFO MicroBatchExecution: Starting new streaming query.
+25/05/02 12:24:28 INFO MicroBatchExecution: Stream started from {}
+25/05/02 12:24:29 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/.metadata.c38708e8-793f-4c7b-b98f-f3da489402b1.tmp to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/metadata
+25/05/02 12:24:29 INFO MicroBatchExecution: Starting [id = 608835e3-d3e8-4c26-a439-90a17707a226, runId = d8dcf029-0632-413c-ad00-9ebfee25c98d]. Use file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8 to store the query checkpoint.
+25/05/02 12:24:29 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@11bde28] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@592c317b]
+25/05/02 12:24:29 INFO OffsetSeqLog: BatchIds found from listing: 
+25/05/02 12:24:29 INFO OffsetSeqLog: BatchIds found from listing: 
+25/05/02 12:24:29 INFO MicroBatchExecution: Starting new streaming query.
+25/05/02 12:24:29 INFO MicroBatchExecution: Stream started from {}
+25/05/02 12:24:33 INFO AdminClientConfig: AdminClientConfig values: 
+	bootstrap.servers = [broker:29092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+25/05/02 12:24:33 INFO AdminClientConfig: AdminClientConfig values: 
+	bootstrap.servers = [broker:29092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+25/05/02 12:24:33 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/05/02 12:24:33 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/05/02 12:24:33 INFO AppInfoParser: Kafka version: 3.3.1
+25/05/02 12:24:33 INFO AppInfoParser: Kafka commitId: e23c59d00e687ff5
+25/05/02 12:24:33 INFO AppInfoParser: Kafka startTimeMs: 1746188673850
+25/05/02 12:24:33 INFO AppInfoParser: Kafka version: 3.3.1
+25/05/02 12:24:33 INFO AppInfoParser: Kafka commitId: e23c59d00e687ff5
+25/05/02 12:24:33 INFO AppInfoParser: Kafka startTimeMs: 1746188673850
+25/05/02 12:24:36 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/sources/0/0 using temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/sources/0/.0.10d1aa9d-4d87-4bfd-b06e-3b06bd93fa1c.tmp
+25/05/02 12:24:36 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/sources/0/0 using temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/sources/0/.0.2d55cfa1-3beb-4aaf-bbc4-62d357351fb6.tmp
+25/05/02 12:24:37 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/sources/0/.0.10d1aa9d-4d87-4bfd-b06e-3b06bd93fa1c.tmp to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/sources/0/0
+25/05/02 12:24:37 INFO KafkaMicroBatchStream: Initial offsets: {"COUNT_NUMB_BUY_PER_PRODUCT":{"0":0}}
+25/05/02 12:24:37 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/sources/0/.0.2d55cfa1-3beb-4aaf-bbc4-62d357351fb6.tmp to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/sources/0/0
+25/05/02 12:24:37 INFO KafkaMicroBatchStream: Initial offsets: {"COUNT_NUMB_BUY_PER_PRODUCT":{"0":0}}
+25/05/02 12:24:37 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/offsets/0 using temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/offsets/.0.90ce665a-4420-4813-8116-7e2363aed973.tmp
+25/05/02 12:24:37 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/offsets/0 using temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/offsets/.0.22f7636e-f53d-4fac-b1fa-88ae3710dc4f.tmp
+25/05/02 12:24:37 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/offsets/.0.90ce665a-4420-4813-8116-7e2363aed973.tmp to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/offsets/0
+25/05/02 12:24:37 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1746188677249,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+25/05/02 12:24:37 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/offsets/.0.22f7636e-f53d-4fac-b1fa-88ae3710dc4f.tmp to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/offsets/0
+25/05/02 12:24:37 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1746188677249,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+25/05/02 12:24:42 INFO IncrementalExecution: Current batch timestamp = 1746188677249
+25/05/02 12:24:42 INFO IncrementalExecution: Current batch timestamp = 1746188677249
+25/05/02 12:24:43 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:43 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:44 INFO IncrementalExecution: Current batch timestamp = 1746188677249
+25/05/02 12:24:45 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:45 INFO IncrementalExecution: Current batch timestamp = 1746188677249
+25/05/02 12:24:45 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:45 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:45 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:46 INFO IncrementalExecution: Current batch timestamp = 1746188677249
+25/05/02 12:24:46 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:46 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+25/05/02 12:24:51 INFO CodeGenerator: Code generated in 3400.060972 ms
+25/05/02 12:24:53 INFO WriteToDataSourceV2Exec: Start processing data source write support: MicroBatchWrite[epoch: 0, writer: ConsoleWriter[numRows=10, truncate=false]]. The input RDD has 1 partitions.
+25/05/02 12:24:53 INFO SparkContext: Starting job: start at <unknown>:0
+25/05/02 12:24:53 INFO DAGScheduler: Got job 0 (start at <unknown>:0) with 1 output partitions
+25/05/02 12:24:54 INFO DAGScheduler: Final stage: ResultStage 0 (start at <unknown>:0)
+25/05/02 12:24:54 INFO DAGScheduler: Parents of final stage: List()
+25/05/02 12:24:54 INFO DAGScheduler: Missing parents: List()
+25/05/02 12:24:54 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[7] at start at <unknown>:0), which has no missing parents
+25/05/02 12:24:55 INFO AsyncEventQueue: Process of event SparkListenerJobStart(0,1746188694050,WrappedArray(org.apache.spark.scheduler.StageInfo@32c51d7a),{spark.driver.port=34757, spark.submit.pyFiles=, spark.app.startTime=1746188618956, spark.executor.extraClassPath=/spark/jars/*, spark.rdd.compress=True, spark.driver.extraClassPath=/spark/jars/*, callSite.short=start at <unknown>:0, __is_continuous_processing=false, spark.jobGroup.id=8d1ff7cf-0bc8-4f3d-8a6f-0b72b8f31cd9, spark.sql.requireAllClusterKeysForDistribution=false, spark.app.submitTime=1746188611552, spark.sql.adaptive.enabled=false, spark.app.initial.jar.urls=spark://527046c18d8d:34757/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar,spark://527046c18d8d:34757/jars/commons-pool2-2.11.1.jar,spark://527046c18d8d:34757/jars/postgresql-42.2.23.jar,spark://527046c18d8d:34757/jars/kafka-clients-3.3.1.jar,spark://527046c18d8d:34757/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar, spark.sql.execution.id=2, sql.streaming.queryId=1a1a745d-3e46-483b-ab9c-312efc3856a6, spark.sql.warehouse.dir=file:/app/spark-warehouse, streaming.sql.batchId=0, callSite.long=org.apache.spark.sql.streaming.DataStreamWriter.start(DataStreamWriter.scala:251)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.base/java.lang.reflect.Method.invoke(Unknown Source)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:282)
+py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+py4j.commands.CallCommand.execute(CallCommand.java:79)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.base/java.lang.Thread.run(Unknown Source), spark.executor.memory=2g, spark.driver.memory=2g, spark.master=local[*], spark.job.interruptOnCancel=true, spark.repl.local.jars=file:///spark/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar,file:///spark/jars/kafka-clients-3.3.1.jar,file:///spark/jars/commons-pool2-2.11.1.jar,file:///spark/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar,file:///spark/jars/postgresql-42.2.23.jar, spark.executor.id=driver, spark.app.name=KafkaConsumer_COUNT_NUMB_BUY_PER_PRODUCT, spark.submit.deployMode=client, spark.driver.host=527046c18d8d, spark.app.id=local-1746188634954, spark.job.description=
+id = 1a1a745d-3e46-483b-ab9c-312efc3856a6
+runId = 8d1ff7cf-0bc8-4f3d-8a6f-0b72b8f31cd9
+batch = 0, spark.sql.cbo.enabled=false, spark.executor.extraJavaOptions=-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false, spark.sql.execution.root.id=0, spark.jars=file:///spark/jars/spark-sql-kafka-0-10_2.12-3.5.0.jar,file:///spark/jars/kafka-clients-3.3.1.jar,file:///spark/jars/commons-pool2-2.11.1.jar,file:///spark/jars/spark-token-provider-kafka-0-10_2.12-3.5.0.jar,file:///spark/jars/postgresql-42.2.23.jar, spark.serializer.objectStreamReset=100, spark.driver.extraJavaOptions=-Djava.net.preferIPv6Addresses=false -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false}) by listener AppStatusListener took 1.200999929s.
+25/05/02 12:24:57 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 22.3 KiB, free 1007.8 MiB)
+25/05/02 12:24:58 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 10.3 KiB, free 1007.8 MiB)
+25/05/02 12:24:58 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 527046c18d8d:46841 (size: 10.3 KiB, free: 1007.8 MiB)
+25/05/02 12:24:58 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1580
+25/05/02 12:24:59 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[7] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+25/05/02 12:24:59 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+25/05/02 12:25:00 INFO CodeGenerator: Code generated in 396.819107 ms
+25/05/02 12:25:01 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (527046c18d8d, executor driver, partition 0, PROCESS_LOCAL, 9074 bytes) 
+25/05/02 12:25:01 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/05/02 12:25:02 INFO SparkContext: Starting job: start at <unknown>:0
+25/05/02 12:25:02 INFO DAGScheduler: Got job 1 (start at <unknown>:0) with 1 output partitions
+25/05/02 12:25:02 INFO DAGScheduler: Final stage: ResultStage 1 (start at <unknown>:0)
+25/05/02 12:25:02 INFO DAGScheduler: Parents of final stage: List()
+25/05/02 12:25:02 INFO DAGScheduler: Missing parents: List()
+25/05/02 12:25:02 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[12] at start at <unknown>:0), which has no missing parents
+25/05/02 12:25:03 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 35.3 KiB, free 1007.8 MiB)
+25/05/02 12:25:03 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 15.8 KiB, free 1007.8 MiB)
+25/05/02 12:25:03 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 527046c18d8d:46841 (size: 15.8 KiB, free: 1007.8 MiB)
+25/05/02 12:25:04 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+25/05/02 12:25:04 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[12] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+25/05/02 12:25:04 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+25/05/02 12:25:04 INFO CodeGenerator: Code generated in 500.114825 ms
+25/05/02 12:25:05 INFO CodeGenerator: Code generated in 197.424393 ms
+25/05/02 12:25:05 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=COUNT_NUMB_BUY_PER_PRODUCT-0 fromOffset=0 untilOffset=100, for query queryId=1a1a745d-3e46-483b-ab9c-312efc3856a6 batchId=0 taskId=0 partitionId=0
+25/05/02 12:25:06 INFO CodeGenerator: Code generated in 199.054542 ms
+25/05/02 12:25:06 INFO CodeGenerator: Code generated in 298.243576 ms
+25/05/02 12:25:06 INFO ConsumerConfig: ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = none
+	bootstrap.servers = [broker:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+25/05/02 12:25:07 INFO AppInfoParser: Kafka version: 3.3.1
+25/05/02 12:25:07 INFO AppInfoParser: Kafka commitId: e23c59d00e687ff5
+25/05/02 12:25:07 INFO AppInfoParser: Kafka startTimeMs: 1746188707649
+25/05/02 12:25:07 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Assigned to partition(s): COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:07 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Seeking to offset 0 for partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:07 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Resetting the last seen epoch of partition COUNT_NUMB_BUY_PER_PRODUCT-0 to 0 since the associated topicId changed from null to zHJ5JxDsSYi3_cjosl1NIA
+25/05/02 12:25:07 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Cluster ID: Ccj4hU9jRr64jQszutRtww
+25/05/02 12:25:08 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Seeking to earliest offset of partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:08 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Resetting offset for partition COUNT_NUMB_BUY_PER_PRODUCT-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker:29092 (id: 1 rack: null)], epoch=0}}.
+25/05/02 12:25:08 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Seeking to latest offset of partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:08 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor-1, groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor] Resetting offset for partition COUNT_NUMB_BUY_PER_PRODUCT-0 to position FetchPosition{offset=100, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker:29092 (id: 1 rack: null)], epoch=0}}.
+25/05/02 12:25:10 INFO DataWritingSparkTask: Writer for partition 0 is committing.
+25/05/02 12:25:10 INFO DataWritingSparkTask: Committed partition 0 (task 0, attempt 0, stage 0.0)
+25/05/02 12:25:10 INFO KafkaDataConsumer: From Kafka topicPartition=COUNT_NUMB_BUY_PER_PRODUCT-0 groupId=spark-kafka-source-9c82e9dd-a9d1-43d0-aa73-b1843528adae-895093586-executor read 100 records through 1 polls (polled  out 100 records), taking 1003191220 nanos, during time span of 2503338712 nanos.
+25/05/02 12:25:10 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 7824 bytes result sent to driver
+25/05/02 12:25:10 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (527046c18d8d, executor driver, partition 0, PROCESS_LOCAL, 9074 bytes) 
+25/05/02 12:25:11 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+25/05/02 12:25:11 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 10801 ms on 527046c18d8d (executor driver) (1/1)
+25/05/02 12:25:11 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/05/02 12:25:11 INFO DAGScheduler: ResultStage 0 (start at <unknown>:0) finished in 16.599 s
+25/05/02 12:25:11 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/05/02 12:25:11 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/05/02 12:25:11 INFO DAGScheduler: Job 0 finished: start at <unknown>:0, took 18.003583 s
+25/05/02 12:25:11 INFO WriteToDataSourceV2Exec: Data source write support MicroBatchWrite[epoch: 0, writer: ConsoleWriter[numRows=10, truncate=false]] is committing.
+-------------------------------------------
+Batch: 0
+-------------------------------------------
+25/05/02 12:25:12 INFO CodeGenerator: Code generated in 99.06292 ms
+25/05/02 12:25:13 INFO CodeGenerator: Code generated in 104.670874 ms
+25/05/02 12:25:22 INFO CodeGenerator: Code generated in 92.480525 ms
+25/05/02 12:25:22 INFO CodeGenerator: Code generated in 200.236846 ms
+25/05/02 12:25:22 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=COUNT_NUMB_BUY_PER_PRODUCT-0 fromOffset=0 untilOffset=100, for query queryId=608835e3-d3e8-4c26-a439-90a17707a226 batchId=0 taskId=1 partitionId=0
++----------+--------------+-----------------------+--------------+
+|PRODUCT_ID|TOTAL_QUANTITY|ingestion_time         |ingestion_date|
++----------+--------------+-----------------------+--------------+
+|NULL      |6             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |10            |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |7             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |5             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |5             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |9             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |2             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |3             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |4             |2025-05-02 12:24:37.249|2025-05-02    |
+|NULL      |3             |2025-05-02 12:24:37.249|2025-05-02    |
++----------+--------------+-----------------------+--------------+
+only showing top 10 rows
+
+25/05/02 12:25:22 INFO WriteToDataSourceV2Exec: Data source write support MicroBatchWrite[epoch: 0, writer: ConsoleWriter[numRows=10, truncate=false]] committed.
+25/05/02 12:25:22 INFO ConsumerConfig: ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = none
+	bootstrap.servers = [broker:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+25/05/02 12:25:22 INFO AppInfoParser: Kafka version: 3.3.1
+25/05/02 12:25:22 INFO AppInfoParser: Kafka commitId: e23c59d00e687ff5
+25/05/02 12:25:22 INFO AppInfoParser: Kafka startTimeMs: 1746188722448
+25/05/02 12:25:22 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Assigned to partition(s): COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:22 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Seeking to offset 0 for partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:22 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/commits/0 using temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/commits/.0.27865c91-bc06-40c9-8a94-fd8b9a510cf5.tmp
+25/05/02 12:25:22 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Resetting the last seen epoch of partition COUNT_NUMB_BUY_PER_PRODUCT-0 to 0 since the associated topicId changed from null to zHJ5JxDsSYi3_cjosl1NIA
+25/05/02 12:25:22 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Cluster ID: Ccj4hU9jRr64jQszutRtww
+25/05/02 12:25:22 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Seeking to earliest offset of partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:23 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/commits/.0.27865c91-bc06-40c9-8a94-fd8b9a510cf5.tmp to file:/tmp/temporary-f5dd9e26-e71d-476a-a4eb-8c3b434975e4/commits/0
+25/05/02 12:25:23 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Resetting offset for partition COUNT_NUMB_BUY_PER_PRODUCT-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker:29092 (id: 1 rack: null)], epoch=0}}.
+25/05/02 12:25:23 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Seeking to latest offset of partition COUNT_NUMB_BUY_PER_PRODUCT-0
+25/05/02 12:25:23 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor-2, groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor] Resetting offset for partition COUNT_NUMB_BUY_PER_PRODUCT-0 to position FetchPosition{offset=100, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker:29092 (id: 1 rack: null)], epoch=0}}.
+25/05/02 12:25:23 INFO MicroBatchExecution: Streaming query made progress: {
+  "id" : "1a1a745d-3e46-483b-ab9c-312efc3856a6",
+  "runId" : "8d1ff7cf-0bc8-4f3d-8a6f-0b72b8f31cd9",
+  "name" : null,
+  "timestamp" : "2025-05-02T12:24:28.749Z",
+  "batchId" : 0,
+  "numInputRows" : 100,
+  "inputRowsPerSecond" : 0.0,
+  "processedRowsPerSecond" : 1.8383028787823081,
+  "durationMs" : {
+    "addBatch" : 37900,
+    "commitOffsets" : 604,
+    "getBatch" : 205,
+    "latestOffset" : 8199,
+    "queryPlanning" : 6293,
+    "triggerExecution" : 54396,
+    "walCommit" : 601
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "KafkaV2[Subscribe[COUNT_NUMB_BUY_PER_PRODUCT]]",
+    "startOffset" : null,
+    "endOffset" : {
+      "COUNT_NUMB_BUY_PER_PRODUCT" : {
+        "0" : 100
+      }
+    },
+    "latestOffset" : {
+      "COUNT_NUMB_BUY_PER_PRODUCT" : {
+        "0" : 100
+      }
+    },
+    "numInputRows" : 100,
+    "inputRowsPerSecond" : 0.0,
+    "processedRowsPerSecond" : 1.8383028787823081,
+    "metrics" : {
+      "avgOffsetsBehindLatest" : "0.0",
+      "maxOffsetsBehindLatest" : "0",
+      "minOffsetsBehindLatest" : "0"
+    }
+  } ],
+  "sink" : {
+    "description" : "org.apache.spark.sql.execution.streaming.ConsoleTable$@1f3978c3",
+    "numOutputRows" : 100
+  }
+}
+25/05/02 12:25:24 INFO KafkaDataConsumer: From Kafka topicPartition=COUNT_NUMB_BUY_PER_PRODUCT-0 groupId=spark-kafka-source-ac8f45ea-c1d8-4ca9-addf-f67aa33c52eb-290891128-executor read 100 records through 1 polls (polled  out 100 records), taking 801954583 nanos, during time span of 2042802862 nanos.
+25/05/02 12:25:24 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1774 bytes result sent to driver
+25/05/02 12:25:24 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 13801 ms on 527046c18d8d (executor driver) (1/1)
+25/05/02 12:25:24 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+25/05/02 12:25:24 INFO DAGScheduler: ResultStage 1 (start at <unknown>:0) finished in 22.198 s
+25/05/02 12:25:24 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+25/05/02 12:25:24 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+25/05/02 12:25:24 INFO DAGScheduler: Job 1 finished: start at <unknown>:0, took 22.304455 s
+25/05/02 12:25:25 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/commits/0 using temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/commits/.0.95868c4c-f1ae-4583-a963-982c8729e38e.tmp
+25/05/02 12:25:26 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/commits/.0.95868c4c-f1ae-4583-a963-982c8729e38e.tmp to file:/tmp/temporary-e3948ba2-57e9-40b7-8828-3bb3d0885dc8/commits/0
+25/05/02 12:25:26 INFO MicroBatchExecution: Streaming query made progress: {
+  "id" : "608835e3-d3e8-4c26-a439-90a17707a226",
+  "runId" : "d8dcf029-0632-413c-ad00-9ebfee25c98d",
+  "name" : null,
+  "timestamp" : "2025-05-02T12:24:29.750Z",
+  "batchId" : 0,
+  "numInputRows" : 100,
+  "inputRowsPerSecond" : 0.0,
+  "processedRowsPerSecond" : 1.7762620341752815,
+  "durationMs" : {
+    "addBatch" : 41001,
+    "commitOffsets" : 499,
+    "getBatch" : 206,
+    "latestOffset" : 7493,
+    "queryPlanning" : 6107,
+    "triggerExecution" : 56298,
+    "walCommit" : 695
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "KafkaV2[Subscribe[COUNT_NUMB_BUY_PER_PRODUCT]]",
+    "startOffset" : null,
+    "endOffset" : {
+      "COUNT_NUMB_BUY_PER_PRODUCT" : {
+        "0" : 100
+      }
+    },
+    "latestOffset" : {
+      "COUNT_NUMB_BUY_PER_PRODUCT" : {
+        "0" : 100
+      }
+    },
+    "numInputRows" : 100,
+    "inputRowsPerSecond" : 0.0,
+    "processedRowsPerSecond" : 1.7762620341752815,
+    "metrics" : {
+      "avgOffsetsBehindLatest" : "0.0",
+      "maxOffsetsBehindLatest" : "0",
+      "minOffsetsBehindLatest" : "0"
+    }
+  } ],
+  "sink" : {
+    "description" : "ForeachBatchSink",
+    "numOutputRows" : -1
+  }
+}
+25/05/02 12:25:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:25:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:25:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:25:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:25:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:25:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:26:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+25/05/02 12:27:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.

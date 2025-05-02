@@ -13,7 +13,7 @@ def configure_logger(topic):
     return logger
 
 # Configuration du logging
-kafka_topic = 'TOTAL_SPENT_PER_USER_TRANSACTION_TYPE'
+kafka_topic = 'AMOUNT_PER_TYPE_WINDOWED'
 logger = configure_logger(kafka_topic)
 
 postgres_url = "jdbc:postgresql://100.117.134.55:30432/project_streaming"
@@ -34,8 +34,10 @@ spark = SparkSession.builder \
 logger.info("Session Spark créée.")
 
 schema = StructType([
-    StructField("KSQL_COL_0", StringType(), True),
-    StructField("TOTAL_SPENT", DoubleType(), True)
+    StructField("TRANSACTION_TYPE", StringType(), True),
+    StructField("WINDOW_START", LongType(), True),
+    StructField("WINDOW_END", LongType(), True),
+    StructField("TOTAL_AMOUNT", DoubleType(), True)
 ])
 
 logger.info("Schéma du message défini pour les données flattened.")

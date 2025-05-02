@@ -160,6 +160,21 @@ CREATE STREAM transactions_blacklist AS
  FROM TRANSACTIONS_CONVERTED_CLEANED
  WHERE status = 'cancelled';
 
+CREATE STREAM transaction_log_stream (
+  transaction_id VARCHAR,
+  latest_status VARCHAR
+) WITH (
+  KAFKA_TOPIC='transaction_log',
+  VALUE_FORMAT='JSON'
+);
+
+CREATE TABLE transaction_status_evolution AS
+SELECT
+  transaction_id,
+  LATEST_BY_OFFSET(latest_status) AS latest_status
+FROM transaction_log_stream
+GROUP BY transaction_id;
+
  CREATE TABLE transaction_status_evolution (
   transaction_id VARCHAR PRIMARY KEY,
   latest_status VARCHAR

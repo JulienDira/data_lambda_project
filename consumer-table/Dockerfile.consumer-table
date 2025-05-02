@@ -27,7 +27,7 @@ RUN cd /spark/jars && \
     curl -O https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar
 
 # Créer les répertoires nécessaires
-RUN mkdir -p /app/log /app/checkpoints
+RUN mkdir -p /app/log /app/checkpoints /app/consumer-table
 
 # Définir la variable d'environnement pour les JARS
 ENV SPARK_KAFKA_VERSION=3.3.1
@@ -36,13 +36,13 @@ ENV SPARK_VERSION=3.5.0
 ENV SPARK_JARS_DIR=/spark/jars
 
 # Copier les fichiers de l'application
-COPY ./consumer-table/ /app/
+COPY ./consumer-table/ /app/consumer-table/
 
 # Définir le répertoire de travail
 WORKDIR /app
 
 # Rendre le script de démarrage exécutable
-RUN chmod +x /app/entrypoint_table.sh
+RUN chmod +x /app/consumer-table/entrypoint_table.sh
 
 # Définir le point d'entrée du conteneur
-ENTRYPOINT ["./entrypoint_table.sh"]
+ENTRYPOINT ["/app/consumer-table/entrypoint_table.sh"]
