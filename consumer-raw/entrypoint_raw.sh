@@ -16,13 +16,8 @@ echo "=== Démarrage des applications Spark ==="
 mkdir -p /app/log
 
 # Parcours tous les fichiers .py dans le répertoire /app/consumer-raw/
-for PY_FILE in /app/consumer-raw/*.py; do
-  BASENAME=$(basename "$PY_FILE")
-  if [ "$BASENAME" = "common_function.py" ]; then
-    continue  # Ignore ce fichier
-  fi
-
-  echo "Démarrage de $BASENAME"
+for PY_FILE in /app/consumer-table/*.py; do
+  echo "Démarrage de $(basename $PY_FILE)"
   /opt/spark/bin/spark-submit \
     --master local[*] \
     --jars "$JARS" \
@@ -30,7 +25,7 @@ for PY_FILE in /app/consumer-raw/*.py; do
     --conf "spark.driver.extraClassPath=${JARS_PATH}/*" \
     --conf "spark.executor.memory=2g" \
     --conf "spark.driver.memory=2g" \
-    "$PY_FILE" >> /app/log/consumer/"$(basename "$PY_FILE" .py)".log 2>&1 &
+    $PY_FILE >> /app/log/consumer/$(basename $PY_FILE .py).log 2>&1 &
 done
 
 
