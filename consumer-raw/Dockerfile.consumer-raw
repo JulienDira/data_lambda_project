@@ -26,7 +26,7 @@ RUN cd /spark/jars && \
     curl -O https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar
 
 # Créer les répertoires nécessaires
-RUN mkdir -p /app/log /app/checkpoints
+RUN mkdir -p /app/log /app/checkpoints /app/consumer-raw
 
 # Définir la variable d'environnement pour les JARS
 ENV SPARK_KAFKA_VERSION=3.3.1
@@ -35,7 +35,7 @@ ENV SPARK_VERSION=3.5.0
 ENV SPARK_JARS_DIR=/spark/jars
 
 # Copier les fichiers de l'application
-COPY ./consumer-raw/ /app/consumer-raw/
+COPY ./ /app/consumer-raw
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -44,4 +44,4 @@ WORKDIR /app
 RUN chmod +x /app/consumer-raw/entrypoint_raw.sh
 
 # Définir le point d'entrée du conteneur
-ENTRYPOINT ["/app/consumer-raw/entrypoint_raw.sh"]
+# ENTRYPOINT ["./consumer-raw/entrypoint_raw.sh"]

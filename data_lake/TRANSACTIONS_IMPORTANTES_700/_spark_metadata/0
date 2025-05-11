@@ -1,0 +1,2 @@
+v1
+{"path":"file:///app/data_lake/TRANSACTIONS_IMPORTANTES_700/ingestion_date=2025-05-11/part-00000-b7a16fe6-96c3-4553-984f-1ff4324843fe.c000.snappy.parquet","size":1679,"isDir":false,"modificationTime":1746967539770,"blockReplication":1,"blockSize":33554432,"action":"add"}
