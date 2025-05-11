@@ -1,1 +1,7 @@
 .venv
+
+/db_tp/*
+!/db_tp/
+
+**/__pycache__/
+
