@@ -106,6 +106,32 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file_access": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": "C:/Users/julie/Documents/Streaming/log/access.log",  # Chemin vers ton fichier log
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "access": {
+            "handlers": ["file_access"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

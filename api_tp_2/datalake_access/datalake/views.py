@@ -8,7 +8,9 @@ import numpy as np
 import pyarrow.dataset as ds
 from datalake.permissions import CanAccessTablePermission
 import pytz
+import logging
 
+logger = logging.getLogger("access")
 DATALAKE_ROOT = "C:/Users/julie/Documents/Streaming/data_lake"
 
 def clean_df_for_json(df: pd.DataFrame) -> pd.DataFrame:
@@ -34,13 +36,19 @@ class RetrieveTableView(APIView):
         table_name = request.query_params.get("table")
         columns = request.query_params.getlist("columns")
         page = int(request.query_params.get("page", 1))
+        ingestion_date = request.query_params.get("ingestion_date")
 
+        logger.info(f"User {request.user.username} accessed table {table_name} at {datetime.utcnow().isoformat()}")
+        
         if not table_name:
             return Response({"error": "Missing 'table' parameter"}, status=400)
 
-        table_path = os.path.join(DATALAKE_ROOT, table_name)
+        table_path = os.path.join(DATALAKE_ROOT, table_name, f"ingestion_date={ingestion_date}")
         if not os.path.exists(table_path) or not os.path.isdir(table_path):
-            return Response({"error": f"Table '{table_name}' not found"}, status=404)
+            return Response({
+                "error": f"Table '{table_name}' and ingestion_date {ingestion_date} not found", 
+                "path" : table_path
+                }, status=404)
 
         try:
             dataset = ds.dataset(table_path, format="parquet", partitioning="hive")
@@ -106,6 +114,8 @@ class MetricsView(APIView):
     def get(self, request):
         table_name = request.query_params.get("table")
         top_x = int(request.query_params.get("x", 5))  # Valeur par défaut = 5
+
+        logger.info(f"User {request.user.username} accessed table {table_name} at {datetime.utcnow().isoformat()}")
 
         if not table_name:
             return Response({"error": "Missing 'table' parameter"}, status=400)
