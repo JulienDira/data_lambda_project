@@ -45,20 +45,48 @@ class RetrieveTableView(APIView):
             dataset = ds.dataset(table_path, format="parquet", partitioning="hive")
             df = dataset.to_table().to_pandas()
 
+            # 🔽🔽🔽 FILTRAGE 🔽🔽🔽
+            filters = {
+                "PAYMENT_METHOD": request.query_params.get("PAYMENT_METHOD"),
+                "COUNTRY": request.query_params.get("COUNTRY"),
+                "PRODUCT_CATEGORY": request.query_params.get("PRODUCT_CATEGORY"),
+                "STATUS": request.query_params.get("STATUS"),
+            }
+
+            for key, value in filters.items():
+                if value and key in df.columns:
+                    df = df[df[key] == value]
+
+            # Filtres numériques
+            for field in ["AMOUNT", "CUSTOMER_RATING"]:
+                if field in df.columns:
+                    val_eq = request.query_params.get(f"{field}_eq")
+                    val_gt = request.query_params.get(f"{field}_gt")
+                    val_lt = request.query_params.get(f"{field}_lt")
+
+                    if val_eq:
+                        df = df[df[field] == float(val_eq)]
+                    if val_gt:
+                        df = df[df[field] > float(val_gt)]
+                    if val_lt:
+                        df = df[df[field] < float(val_lt)]
+            # 🔼🔼🔼 FIN FILTRAGE 🔼🔼🔼
+
+            # Filtrage sur colonnes
             if columns:
                 invalid_cols = [col for col in columns if col not in df.columns]
                 if invalid_cols:
                     return Response({"error": f"Invalid column(s) requested: {invalid_cols}"}, status=400)
                 df = df[columns]
 
+            # Pagination
             page_size = 10
             start = (page - 1) * page_size
             end = start + page_size
             page_df = df.iloc[start:end]
 
-            # Nettoyage avant conversion JSON
+            # Nettoyage
             page_df = clean_df_for_json(page_df)
-
             paginated_data = page_df.to_dict(orient="records")
 
             return Response({
@@ -70,3 +98,4 @@ class RetrieveTableView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
+
