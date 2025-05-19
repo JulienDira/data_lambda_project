@@ -2,3 +2,7 @@ Django
 djangorestframework
 markdown
 django-filter
+djangorestframework-simplejwt
+psycopg2-binary
+pandas
+pyarrow

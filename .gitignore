@@ -1,7 +1,8 @@
 .venv
 
-/db_tp/*
-!/db_tp/
+./db_tp/*
+.!/db_tp/
 
 **/__pycache__/
+**/migrations/
 
