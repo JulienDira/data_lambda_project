@@ -24,5 +24,6 @@ urlpatterns = [
     path('api/grant/', GrantPermissionView.as_view(), name='grant-permission'), # Ajouter des permissions
     path('api/revoke/', RevokePermissionView.as_view(), name='revoke-permission'), # Supprimer des permissions
     
-    path('api/datalake/', include('datalake.urls')), 
+    path('api/datalake/', include('datalake.urls')),
+    path('api/advanced/', include('advanced.urls')),
 ]

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'permissions',
     'audit',
     'users',
-    'datalake'
+    'datalake',
+    'advanced'
 ]
 
 REST_FRAMEWORK = {
