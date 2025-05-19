@@ -10,28 +10,44 @@ from datalake.permissions import CanAccessTablePermission
 import pytz
 import logging
 
+# Swagger imports
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 logger = logging.getLogger("access")
 DATALAKE_ROOT = "C:/Users/julie/Documents/Streaming/data_lake"
 
 def clean_df_for_json(df: pd.DataFrame) -> pd.DataFrame:
-    # Remplacer inf et -inf par NaN
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
-
-    # Convertir datetime en string ISO 8601 (en remplaçant NaT par None)
     for col in df.select_dtypes(include=['datetime64[ns, UTC]', 'datetime64[ns]']):
         df[col] = df[col].astype(str).replace('NaT', None)
-
-    # Forcer le type object pour pouvoir mettre None
     df = df.astype(object)
-
-    # Remplacer NaN par None
     df = df.where(pd.notnull(df), None)
-
     return df
 
 class RetrieveTableView(APIView):
     permission_classes = [IsAuthenticated, CanAccessTablePermission]
 
+    @swagger_auto_schema(
+        operation_description="Retrieve a specific page of filtered data from a given table and ingestion_date.",
+        manual_parameters=[
+            openapi.Parameter('table', openapi.IN_QUERY, description="Table name", type=openapi.TYPE_STRING, required=True),
+            openapi.Parameter('columns', openapi.IN_QUERY, description="List of columns to return", type=openapi.TYPE_ARRAY, items=openapi.Items(type=openapi.TYPE_STRING)),
+            openapi.Parameter('page', openapi.IN_QUERY, description="Page number (default: 1)", type=openapi.TYPE_INTEGER),
+            openapi.Parameter('ingestion_date', openapi.IN_QUERY, description="Ingestion date", type=openapi.TYPE_STRING),
+            openapi.Parameter('PAYMENT_METHOD', openapi.IN_QUERY, description="Filter by payment method", type=openapi.TYPE_STRING),
+            openapi.Parameter('COUNTRY', openapi.IN_QUERY, description="Filter by country", type=openapi.TYPE_STRING),
+            openapi.Parameter('PRODUCT_CATEGORY', openapi.IN_QUERY, description="Filter by product category", type=openapi.TYPE_STRING),
+            openapi.Parameter('STATUS', openapi.IN_QUERY, description="Filter by status", type=openapi.TYPE_STRING),
+            openapi.Parameter('AMOUNT_eq', openapi.IN_QUERY, description="Filter AMOUNT equal to", type=openapi.TYPE_NUMBER),
+            openapi.Parameter('AMOUNT_gt', openapi.IN_QUERY, description="Filter AMOUNT greater than", type=openapi.TYPE_NUMBER),
+            openapi.Parameter('AMOUNT_lt', openapi.IN_QUERY, description="Filter AMOUNT less than", type=openapi.TYPE_NUMBER),
+            openapi.Parameter('CUSTOMER_RATING_eq', openapi.IN_QUERY, description="Filter CUSTOMER_RATING equal to", type=openapi.TYPE_NUMBER),
+            openapi.Parameter('CUSTOMER_RATING_gt', openapi.IN_QUERY, description="Filter CUSTOMER_RATING greater than", type=openapi.TYPE_NUMBER),
+            openapi.Parameter('CUSTOMER_RATING_lt', openapi.IN_QUERY, description="Filter CUSTOMER_RATING less than", type=openapi.TYPE_NUMBER),
+        ],
+        responses={200: "Paginated and filtered data", 400: "Bad Request", 404: "Not Found"}
+    )
     def get(self, request):
         table_name = request.query_params.get("table")
         columns = request.query_params.getlist("columns")
@@ -39,7 +55,7 @@ class RetrieveTableView(APIView):
         ingestion_date = request.query_params.get("ingestion_date")
 
         logger.info(f"User {request.user.username} accessed table {table_name} at {datetime.utcnow().isoformat()}")
-        
+
         if not table_name:
             return Response({"error": "Missing 'table' parameter"}, status=400)
 
@@ -47,14 +63,13 @@ class RetrieveTableView(APIView):
         if not os.path.exists(table_path) or not os.path.isdir(table_path):
             return Response({
                 "error": f"Table '{table_name}' and ingestion_date {ingestion_date} not found", 
-                "path" : table_path
-                }, status=404)
+                "path": table_path
+            }, status=404)
 
         try:
             dataset = ds.dataset(table_path, format="parquet", partitioning="hive")
             df = dataset.to_table().to_pandas()
 
-            # QUESTION 5 : AJOUT DU FILTRAGE
             filters = {
                 "PAYMENT_METHOD": request.query_params.get("PAYMENT_METHOD"),
                 "COUNTRY": request.query_params.get("COUNTRY"),
@@ -66,7 +81,6 @@ class RetrieveTableView(APIView):
                 if value and key in df.columns:
                     df = df[df[key] == value]
 
-            # Filtres numériques
             for field in ["AMOUNT", "CUSTOMER_RATING"]:
                 if field in df.columns:
                     val_eq = request.query_params.get(f"{field}_eq")
@@ -80,21 +94,17 @@ class RetrieveTableView(APIView):
                     if val_lt:
                         df = df[df[field] < float(val_lt)]
 
-            # Filtrage sur colonnes
             if columns:
                 invalid_cols = [col for col in columns if col not in df.columns]
                 if invalid_cols:
                     return Response({"error": f"Invalid column(s) requested: {invalid_cols}"}, status=400)
-                df = df[columns]      
-            #FIN QUESTION 5 : FILTRAGE DES COLONNES
+                df = df[columns]
 
-            # Pagination
             page_size = 10
             start = (page - 1) * page_size
             end = start + page_size
             page_df = df.iloc[start:end]
 
-            # Nettoyage
             page_df = clean_df_for_json(page_df)
             paginated_data = page_df.to_dict(orient="records")
 
@@ -107,13 +117,23 @@ class RetrieveTableView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
-        
+
+
 class MetricsView(APIView):
     permission_classes = [IsAuthenticated, CanAccessTablePermission]
 
+    @swagger_auto_schema(
+        operation_description="Retrieve metrics (recent amount spent, totals per user/type, top products) from a table.",
+        manual_parameters=[
+            openapi.Parameter('table', openapi.IN_QUERY, description="Table name", type=openapi.TYPE_STRING, required=True),
+            openapi.Parameter('x', openapi.IN_QUERY, description="Top X products (default: 5)", type=openapi.TYPE_INTEGER),
+        ],
+        responses={200: "Metrics returned", 400: "Missing parameter", 404: "Table not found"}
+    )
     def get(self, request):
+
         table_name = request.query_params.get("table")
-        top_x = int(request.query_params.get("x", 5))  # Valeur par défaut = 5
+        top_x = int(request.query_params.get("x", 5))
 
         logger.info(f"User {request.user.username} accessed table {table_name} at {datetime.utcnow().isoformat()}")
 
@@ -128,11 +148,9 @@ class MetricsView(APIView):
             dataset = ds.dataset(table_path, format="parquet", partitioning="hive")
             df = dataset.to_table().to_pandas()
 
-            # On suppose qu'on a les colonnes suivantes : 'timestamp', 'amount', 'user_id', 'transaction_type', 'product_name'
             now = datetime.utcnow().replace(tzinfo=pytz.UTC)
             five_minutes_ago = now - timedelta(minutes=5)
 
-            # 1️⃣ Montant total des 5 dernières minutes
             if "TIMESTAMP" in df.columns:
                 df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"])
                 recent_df = df[df["TIMESTAMP"] >= five_minutes_ago]
@@ -140,13 +158,11 @@ class MetricsView(APIView):
             else:
                 recent_spent = None
 
-            # 2️⃣ Total dépensé par utilisateur et type de transaction
             total_per_user_type = []
             if {"USER_ID_HASHED", "TRANSACTION_TYPE", "AMOUNT"}.issubset(df.columns):
                 grouped = df.groupby(["USER_ID_HASHED", "TRANSACTION_TYPE"])["AMOUNT"].sum().reset_index()
                 total_per_user_type = grouped.to_dict(orient="records")
 
-            # 3️⃣ Top X produits les plus achetés
             top_products = []
             if "PRODUCT_ID" in df.columns:
                 top = (
@@ -166,10 +182,15 @@ class MetricsView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
-               
+
+
 class ListResourcesView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @swagger_auto_schema(
+        operation_description="List all available resources (tables and partitions) in the Datalake.",
+        responses={200: "Resources listed", 500: "Server error"}
+    )
     def get(self, request):
         try:
             resources = []
@@ -181,5 +202,3 @@ class ListResourcesView(APIView):
             return Response({"resources": resources})
         except Exception as e:
             return Response({"error": str(e)}, status=500)
-
-

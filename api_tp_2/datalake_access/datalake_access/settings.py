@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'audit',
     'users',
     'datalake',
-    'advanced'
+    'advanced',
+    'drf_yasg'
 ]
 
 REST_FRAMEWORK = {
