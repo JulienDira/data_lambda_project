@@ -2,6 +2,8 @@
 
 Ce projet implémente une infrastructure de traitement de données en temps réel à l’aide de **Kafka**, **KSQL**, **PostgreSQL**, et **Docker**. Il utilise des **consumers** pour lire des **streams** et des **tables**, puis écrit ces données respectivement dans un **Data Lake** et un **Data Warehouse**. Le projet est entièrement orchestré avec **Docker Compose**.
 
+Ce repo est égalememnt composé du projet d'**API 1** ainsi que d'**API 2** qui se trouvent dans leurs dossiers respectifs. L'**API 2** est également compososé d'un **README** et d'une documentation via **swagger** en vue de sa compléxitée.
+
 ## Structure du Projet
 
 Voici la structure du projet :
@@ -12,7 +14,8 @@ Voici la structure du projet :
 ├── create_user_table.sql     # Création table utilisateur
 ├── docker-compose.yml        # Déploiement infrastructure
 ├── structure.txt             # Structure du projet
-├── api/                      # API du projet
+├── api_tp_1/                      # API du projet 1 sur les API
+├── api_tp_2/                      # API du projet 2 sur les API (intéragir avec le data lake)
 ├── consumer-raw/             # Consumers pour Data Lake
 │   ├── docker-compose.yaml   # Compose pour Data Lake
 │   ├── Dockerfile.consumer-raw # Dockerfile Data Lake
