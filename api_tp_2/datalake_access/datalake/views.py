@@ -166,4 +166,20 @@ class MetricsView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
+               
+class ListResourcesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            resources = []
+            for root, dirs, files in os.walk(DATALAKE_ROOT):
+                for dir in dirs:
+                    full_path = os.path.join(root, dir)
+                    relative_path = os.path.relpath(full_path, DATALAKE_ROOT)
+                    resources.append(relative_path)
+            return Response({"resources": resources})
+        except Exception as e:
+            return Response({"error": str(e)}, status=500)
+
 
