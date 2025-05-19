@@ -15,7 +15,7 @@ from datalake.permissions import CanAccessTablePermission
 from rest_framework.permissions import IsAuthenticated
 
 DATALAKE_ROOT = "C:/Users/julie/Documents/Streaming/data_lake"
-INDEX_DIR = "index"
+INDEX_DIR = "C:/Users/julie/Documents/Streaming/api_tp_2/datalake_access/index"
 
 class FullTextSearchView(APIView):
     permission_classes = [IsAuthenticated, CanAccessTablePermission]
