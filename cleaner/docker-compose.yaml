@@ -1,0 +1,33 @@
+x-cleaner-defaults: &cleaner-template
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - ./:/app/cleaner
+    - ../data_lake:/app/data_lake
+    - ../log/cron:/var/log/cron
+  # command: ["/app/cleaner/entrypoint.sh"]
+  networks:
+    - lambda
+  restart: unless-stopped
+
+services:
+
+  cleaner-1:
+    <<: *cleaner-template
+    container_name: cleaner-classic
+    command: ["/app/cleaner/run_spark_batch.sh"]
+    environment:
+      PY_FILE: files_merger.py
+
+  cleaner-2:
+    <<: *cleaner-template
+    container_name: cleaner-delta
+    command: ["/app/cleaner/run_spark_batch.sh"]
+    environment:
+      PY_FILE: delta_lake.py
+
+
+networks:
+  lambda:
+    external: true

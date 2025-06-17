@@ -1,0 +1,24 @@
+x-producer-defaults: &producer-template
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - ./:/app/producer
+    - ../data_lake:/app/data_lake
+    - ../log:/app/log
+  command: ["/app/producer/entrypoint.sh"]
+  networks:
+    - lambda
+  restart: unless-stopped
+
+services:
+  log_generator:
+    <<: *producer-template
+    container_name: log_generator
+    environment:
+      PY_FILE: log_generator.py
+      KAFKA_TOPIC: logs
+
+networks:
+  lambda:
+    external: true

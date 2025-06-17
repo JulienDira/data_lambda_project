@@ -10,7 +10,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -51,7 +51,7 @@ services:
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -75,7 +75,7 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -116,7 +116,7 @@ services:
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -135,14 +135,14 @@ services:
       - broker
       - schema-registry
       - connect
-      - ksqldb-server
+      # - ksqldb-server
     ports:
       - "9021:9021"
     environment:
       CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'
       CONTROL_CENTER_CONNECT_CONNECT-DEFAULT_CLUSTER: 'connect:8083'
-      CONTROL_CENTER_KSQL_KSQLDB1_URL: "http://ksqldb-server:8088"
-      CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: "http://localhost:8088"
+      # CONTROL_CENTER_KSQL_KSQLDB1_URL: "http://ksqldb-server:8088"
+      # CONTROL_CENTER_KSQL_KSQLDB1_ADVERTISED_URL: "http://localhost:8088"
       CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
       CONTROL_CENTER_REPLICATION_FACTOR: 1
       CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
@@ -150,7 +150,7 @@ services:
       CONFLUENT_METRICS_TOPIC_REPLICATION: 1
       PORT: 9021
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -161,83 +161,83 @@ services:
           cpus: '0.5'
 
 
-  ksqldb-server:
-    image: confluentinc/cp-ksqldb-server:7.5.0
-    hostname: ksqldb-server
-    container_name: ksqldb-server
-    depends_on:
-      - broker
-      - connect
-    ports:
-      - "8088:8088"
-    environment:
-      KSQL_CONFIG_DIR: "/etc/ksql"
-      KSQL_BOOTSTRAP_SERVERS: "broker:29092"
-      KSQL_HOST_NAME: ksqldb-server
-      KSQL_LISTENERS: "http://0.0.0.0:8088"
-      KSQL_CACHE_MAX_BYTES_BUFFERING: 0
-      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
-      KSQL_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
-      KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
-      KSQL_KSQL_CONNECT_URL: "http://connect:8083"
-      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_REPLICATION_FACTOR: 1
-      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: 'true'
-      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
-    networks:
-      - streaming_default
+  # ksqldb-server:
+  #   image: confluentinc/cp-ksqldb-server:7.5.0
+  #   hostname: ksqldb-server
+  #   container_name: ksqldb-server
+  #   depends_on:
+  #     - broker
+  #     - connect
+  #   ports:
+  #     - "8088:8088"
+  #   environment:
+  #     KSQL_CONFIG_DIR: "/etc/ksql"
+  #     KSQL_BOOTSTRAP_SERVERS: "broker:29092"
+  #     KSQL_HOST_NAME: ksqldb-server
+  #     KSQL_LISTENERS: "http://0.0.0.0:8088"
+  #     KSQL_CACHE_MAX_BYTES_BUFFERING: 0
+  #     KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+  #     KSQL_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+  #     KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
+  #     KSQL_KSQL_CONNECT_URL: "http://connect:8083"
+  #     KSQL_KSQL_LOGGING_PROCESSING_TOPIC_REPLICATION_FACTOR: 1
+  #     KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: 'true'
+  #     KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: 'true'
+  #   networks:
+  #     - lambda
 
-  ksqldb-cli:
-    image: confluentinc/cp-ksqldb-cli:7.5.0
-    container_name: ksqldb-cli
-    depends_on:
-      - broker
-      - connect
-      - ksqldb-server
-    entrypoint: /bin/sh
-    tty: true
-    networks:
-      - streaming_default
-    deploy:
-      resources:
-        limits:
-          memory: 1g  # ou plus si tu as de la marge
-          cpus: '1.0'
-        reservations:
-          memory: 1g
-          cpus: '0.5'
+  # ksqldb-cli:
+  #   image: confluentinc/cp-ksqldb-cli:7.5.0
+  #   container_name: ksqldb-cli
+  #   depends_on:
+  #     - broker
+  #     - connect
+  #     - ksqldb-server
+  #   entrypoint: /bin/sh
+  #   tty: true
+  #   networks:
+  #     - lambda
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 1g  # ou plus si tu as de la marge
+  #         cpus: '1.0'
+  #       reservations:
+  #         memory: 1g
+  #         cpus: '0.5'
 
 
-  ksql-datagen:
-    image: confluentinc/ksqldb-examples:7.5.0
-    hostname: ksql-datagen
-    container_name: ksql-datagen
-    depends_on:
-      - ksqldb-server
-      - broker
-      - schema-registry
-      - connect
-    command: "bash -c 'echo Waiting for Kafka to be ready... && \
-                       cub kafka-ready -b broker:29092 1 40 && \
-                       echo Waiting for Confluent Schema Registry to be ready... && \
-                       cub sr-ready schema-registry 8081 40 && \
-                       echo Waiting a few seconds for topic creation to finish... && \
-                       sleep 11 && \
-                       tail -f /dev/null'"
-    environment:
-      KSQL_CONFIG_DIR: "/etc/ksql"
-      STREAMS_BOOTSTRAP_SERVERS: broker:29092
-      STREAMS_SCHEMA_REGISTRY_HOST: schema-registry
-      STREAMS_SCHEMA_REGISTRY_PORT: 8081
-    networks:
-      - streaming_default
-    deploy:
-      resources:
-        limits:
-          memory: 1g  # ou plus si tu as de la marge
-          cpus: '1.0'
-        reservations:
-          memory: 1g
-          cpus: '0.5'
+  # ksql-datagen:
+  #   image: confluentinc/ksqldb-examples:7.5.0
+  #   hostname: ksql-datagen
+  #   container_name: ksql-datagen
+  #   depends_on:
+  #     - ksqldb-server
+  #     - broker
+  #     - schema-registry
+  #     - connect
+  #   command: "bash -c 'echo Waiting for Kafka to be ready... && \
+  #                      cub kafka-ready -b broker:29092 1 40 && \
+  #                      echo Waiting for Confluent Schema Registry to be ready... && \
+  #                      cub sr-ready schema-registry 8081 40 && \
+  #                      echo Waiting a few seconds for topic creation to finish... && \
+  #                      sleep 11 && \
+  #                      tail -f /dev/null'"
+  #   environment:
+  #     KSQL_CONFIG_DIR: "/etc/ksql"
+  #     STREAMS_BOOTSTRAP_SERVERS: broker:29092
+  #     STREAMS_SCHEMA_REGISTRY_HOST: schema-registry
+  #     STREAMS_SCHEMA_REGISTRY_PORT: 8081
+  #   networks:
+  #     - lambda
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 1g  # ou plus si tu as de la marge
+  #         cpus: '1.0'
+  #       reservations:
+  #         memory: 1g
+  #         cpus: '0.5'
 
 
   rest-proxy:
@@ -255,7 +255,7 @@ services:
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
     networks:
-      - streaming_default
+      - lambda
     deploy:
       resources:
         limits:
@@ -266,21 +266,21 @@ services:
           cpus: '0.5'
 
 
-  db:
-    image: postgres:14
-    container_name: my_postgres_db
-    environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
-    volumes:
-      - ./db_tp:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    networks:
-      - streaming_default
+#   db:
+#     image: postgres:14
+#     container_name: my_postgres_db
+#     environment:
+#       POSTGRES_USER: myuser
+#       POSTGRES_PASSWORD: mypassword
+#       POSTGRES_DB: mydatabase
+#     volumes:
+#       - ./db_tp:/var/lib/postgresql/data
+#     ports:
+#       - "5432:5432"
+#     networks:
+#       - lambda
 
 networks:
-  streaming_default:
+  lambda:
     external: true
 

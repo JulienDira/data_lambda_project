@@ -1,0 +1,6 @@
+PATH=/opt/spark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+* * * * * echo "cron tick: $(date)" >> /var/log/cron/cron.log
+
+* * * * * /opt/spark/bin/spark-submit /app/consumer/metrics_batch.py >> /var/log/cron/metrics_batch.log 2>&1

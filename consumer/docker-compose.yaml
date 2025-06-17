@@ -1,0 +1,38 @@
+x-consumer-defaults: &consumer-template
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - ./:/app/consumer
+    - ../data_lake:/app/data_lake
+    - ../log/cron:/var/log/cron
+  command: ["/app/consumer/entrypoint.sh"]
+  networks:
+    - lambda
+  restart: unless-stopped
+
+services:
+  consumer-1:
+    <<: *consumer-template
+    container_name: consumer-stream-to-file
+    environment:
+      PY_FILE: stream_to_file.py
+      KAFKA_TOPIC: logs
+
+  consumer-2:
+    <<: *consumer-template
+    container_name: consumer-metrics-streaming
+    environment:
+      PY_FILE: metrics_streaming.py
+      KAFKA_TOPIC: logs
+
+  consumer-3:
+    <<: *consumer-template
+    container_name: consumer-metrics-batch
+    environment:
+      PY_FILE: metrics_batch.py
+    command: ["cron", "-f"]
+
+networks:
+  lambda:
+    external: true

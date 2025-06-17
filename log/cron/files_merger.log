@@ -1,0 +1,1085 @@
+25/06/17 07:24:06 INFO SparkContext: Running Spark version 3.5.0
+25/06/17 07:24:06 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 07:24:06 INFO SparkContext: Java version 11.0.27
+25/06/17 07:24:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/06/17 07:24:07 INFO ResourceUtils: ==============================================================
+25/06/17 07:24:07 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/06/17 07:24:07 INFO ResourceUtils: ==============================================================
+25/06/17 07:24:07 INFO SparkContext: Submitted application: Merger
+25/06/17 07:24:07 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/06/17 07:24:07 INFO ResourceProfile: Limiting resource is cpu
+25/06/17 07:24:07 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/06/17 07:24:07 INFO SecurityManager: Changing view acls to: root
+25/06/17 07:24:07 INFO SecurityManager: Changing modify acls to: root
+25/06/17 07:24:07 INFO SecurityManager: Changing view acls groups to: 
+25/06/17 07:24:07 INFO SecurityManager: Changing modify acls groups to: 
+25/06/17 07:24:07 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/06/17 07:24:08 INFO Utils: Successfully started service 'sparkDriver' on port 42251.
+25/06/17 07:24:08 INFO SparkEnv: Registering MapOutputTracker
+25/06/17 07:24:08 INFO SparkEnv: Registering BlockManagerMaster
+25/06/17 07:24:08 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/06/17 07:24:08 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/06/17 07:24:08 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/06/17 07:24:08 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-c61d0f72-4669-463d-89fe-d0113c548f93
+25/06/17 07:24:08 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/06/17 07:24:08 INFO SparkEnv: Registering OutputCommitCoordinator
+25/06/17 07:24:09 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/06/17 07:24:09 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/06/17 07:24:09 INFO Executor: Starting executor ID driver on host 7f573d27a851
+25/06/17 07:24:09 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 07:24:09 INFO Executor: Java version 11.0.27
+25/06/17 07:24:09 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/06/17 07:24:09 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@11032aef for default.
+25/06/17 07:24:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35137.
+25/06/17 07:24:09 INFO NettyBlockTransferService: Server created on 7f573d27a851:35137
+25/06/17 07:24:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/06/17 07:24:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 7f573d27a851, 35137, None)
+25/06/17 07:24:09 INFO BlockManagerMasterEndpoint: Registering block manager 7f573d27a851:35137 with 434.4 MiB RAM, BlockManagerId(driver, 7f573d27a851, 35137, None)
+25/06/17 07:24:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 7f573d27a851, 35137, None)
+25/06/17 07:24:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 7f573d27a851, 35137, None)
+25/06/17 07:24:12 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/06/17 07:24:12 INFO SharedState: Warehouse path is 'file:/root/spark-warehouse'.
+25/06/17 07:24:15 INFO InMemoryFileIndex: It took 818 ms to list leaf files for 1 paths.
+25/06/17 07:24:16 INFO InMemoryFileIndex: It took 828 ms to list leaf files for 26 paths.
+25/06/17 07:24:22 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 07:24:22 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 07:24:23 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 199.2 KiB, free 434.2 MiB)
+25/06/17 07:24:24 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.2 KiB, free 434.2 MiB)
+25/06/17 07:24:24 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 7f573d27a851:35137 (size: 34.2 KiB, free: 434.4 MiB)
+25/06/17 07:24:24 INFO SparkContext: Created broadcast 0 from json at NativeMethodAccessorImpl.java:0
+25/06/17 07:24:24 INFO FileSourceScanExec: Planning scan with bin packing, max size: 6816388 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 07:24:24 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 07:24:24 INFO DAGScheduler: Got job 0 (json at NativeMethodAccessorImpl.java:0) with 13 output partitions
+25/06/17 07:24:24 INFO DAGScheduler: Final stage: ResultStage 0 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 07:24:24 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 07:24:24 INFO DAGScheduler: Missing parents: List()
+25/06/17 07:24:24 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 07:24:25 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 16.0 KiB, free 434.2 MiB)
+25/06/17 07:24:25 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.5 KiB, free 434.1 MiB)
+25/06/17 07:24:25 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 7f573d27a851:35137 (size: 7.5 KiB, free: 434.4 MiB)
+25/06/17 07:24:25 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+25/06/17 07:24:25 INFO DAGScheduler: Submitting 13 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+25/06/17 07:24:25 INFO TaskSchedulerImpl: Adding task set 0.0 with 13 tasks resource profile 0
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (7f573d27a851, executor driver, partition 0, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (7f573d27a851, executor driver, partition 1, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (7f573d27a851, executor driver, partition 2, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (7f573d27a851, executor driver, partition 3, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (7f573d27a851, executor driver, partition 4, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (7f573d27a851, executor driver, partition 5, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (7f573d27a851, executor driver, partition 6, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (7f573d27a851, executor driver, partition 7, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (7f573d27a851, executor driver, partition 8, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (7f573d27a851, executor driver, partition 9, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (7f573d27a851, executor driver, partition 10, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (7f573d27a851, executor driver, partition 11, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO TaskSetManager: Starting task 12.0 in stage 0.0 (TID 12) (7f573d27a851, executor driver, partition 12, PROCESS_LOCAL, 8421 bytes) 
+25/06/17 07:24:25 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+25/06/17 07:24:25 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/06/17 07:24:25 INFO Executor: Running task 10.0 in stage 0.0 (TID 10)
+25/06/17 07:24:25 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+25/06/17 07:24:25 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+25/06/17 07:24:25 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+25/06/17 07:24:25 INFO Executor: Running task 12.0 in stage 0.0 (TID 12)
+25/06/17 07:24:25 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+25/06/17 07:24:25 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+25/06/17 07:24:25 INFO Executor: Running task 11.0 in stage 0.0 (TID 11)
+25/06/17 07:24:25 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+25/06/17 07:24:25 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+25/06/17 07:24:25 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d56b447f-ac3f-44ca-89eb-8c330c4413c9-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-57eb58cc-879f-4d15-b1b6-741f7f6458f4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-2617bfd2-c853-4f60-b218-542ef828165f-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-178d45de-0476-4cd9-bf11-3fbf03556d79-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-cc7086ec-0df9-47d4-b00c-8ddee783f72e-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f9aeb0f2-8612-4c73-8f71-70d4d9eca29f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-8e07ce8f-68c5-4a02-b6ae-632e4e958b1e-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-817c80fe-4a42-42dd-89ca-692dd0829dfb-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-4479398c-318c-4612-80a6-63992fab6545-c000.json, range: 0-8391, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e3c7678b-5600-419f-aa58-45f1dcd1087f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-62878f4d-4759-40a5-870e-2ca4f1ecb50c-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44c776b6-c38c-4c56-b055-758811bcda69-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-3f5b935f-32c4-4f54-9bb7-aa8e0ac0c375-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:26 INFO CodeGenerator: Code generated in 510.526816 ms
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-423cb46d-bd26-4c23-8c5d-8010ddbb7ad0-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-479e698a-5a90-43e2-988f-11d7a4b2c180-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-0c2ec0b8-be3a-47c7-a278-4f4a94e2488a-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-c4be5bad-0999-4cbf-88d6-a89c6317cf46-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d59670f2-1c8d-4195-9456-d208e5d651c7-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-176427eb-1eba-4a8d-a325-9834a2477e87-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a8dcca98-4275-498f-a053-c1976fe85d56-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44b34aca-208b-4e9d-a524-8da855a506c4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-80e86c78-a9fc-4bec-8b8b-b051eaafddba-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f7d7a0b1-0668-4352-b35a-bba61d5e5d27-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-9947132e-b1bd-4ae6-a227-40868233b836-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-38c4c21c-32e1-456d-bf77-cb376690bb28-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:24:27 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-14433430-c55e-4f4d-b485-c394440da43f-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:24:27 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 2005 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 11.0 in stage 0.0 (TID 11). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 10.0 in stage 0.0 (TID 10). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 12.0 in stage 0.0 (TID 12). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 2048 bytes result sent to driver
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 1661 ms on 7f573d27a851 (executor driver) (1/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 1677 ms on 7f573d27a851 (executor driver) (2/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 1660 ms on 7f573d27a851 (executor driver) (3/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 1688 ms on 7f573d27a851 (executor driver) (4/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 1666 ms on 7f573d27a851 (executor driver) (5/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 1672 ms on 7f573d27a851 (executor driver) (6/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 1686 ms on 7f573d27a851 (executor driver) (7/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 1678 ms on 7f573d27a851 (executor driver) (8/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 1686 ms on 7f573d27a851 (executor driver) (9/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 12.0 in stage 0.0 (TID 12) in 1678 ms on 7f573d27a851 (executor driver) (10/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1786 ms on 7f573d27a851 (executor driver) (11/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 1693 ms on 7f573d27a851 (executor driver) (12/13)
+25/06/17 07:24:27 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 1688 ms on 7f573d27a851 (executor driver) (13/13)
+25/06/17 07:24:27 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/06/17 07:24:27 INFO DAGScheduler: ResultStage 0 (json at NativeMethodAccessorImpl.java:0) finished in 2.544 s
+25/06/17 07:24:27 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 07:24:27 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/06/17 07:24:27 INFO DAGScheduler: Job 0 finished: json at NativeMethodAccessorImpl.java:0, took 2.740396 s
+25/06/17 07:24:27 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 07:24:27 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 07:24:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 07:24:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 07:24:28 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 07:24:28 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 199.1 KiB, free 434.0 MiB)
+25/06/17 07:24:28 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 34.2 KiB, free 433.9 MiB)
+25/06/17 07:24:28 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 7f573d27a851:35137 (size: 34.2 KiB, free: 434.3 MiB)
+25/06/17 07:24:28 INFO SparkContext: Created broadcast 2 from json at NativeMethodAccessorImpl.java:0
+25/06/17 07:24:28 INFO FileSourceScanExec: Planning scan with bin packing, max size: 6816388 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 07:24:28 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 7f573d27a851:35137 in memory (size: 7.5 KiB, free: 434.3 MiB)
+25/06/17 07:24:28 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 7f573d27a851:35137 in memory (size: 34.2 KiB, free: 434.4 MiB)
+25/06/17 07:24:28 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 07:24:28 INFO DAGScheduler: Got job 1 (json at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/06/17 07:24:28 INFO DAGScheduler: Final stage: ResultStage 1 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 07:24:28 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 07:24:28 INFO DAGScheduler: Missing parents: List()
+25/06/17 07:24:28 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 07:24:28 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 210.9 KiB, free 434.0 MiB)
+25/06/17 07:24:28 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 76.1 KiB, free 433.9 MiB)
+25/06/17 07:24:28 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 7f573d27a851:35137 (size: 76.1 KiB, free: 434.3 MiB)
+25/06/17 07:24:28 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1580
+25/06/17 07:24:28 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+25/06/17 07:24:28 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+25/06/17 07:24:28 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 13) (7f573d27a851, executor driver, partition 0, PROCESS_LOCAL, 12538 bytes) 
+25/06/17 07:24:28 INFO Executor: Running task 0.0 in stage 1.0 (TID 13)
+25/06/17 07:24:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 07:24:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 07:24:28 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 07:26:06 INFO SparkContext: Running Spark version 3.5.0
+25/06/17 07:26:06 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 07:26:06 INFO SparkContext: Java version 11.0.27
+25/06/17 07:26:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/06/17 07:26:06 INFO ResourceUtils: ==============================================================
+25/06/17 07:26:06 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/06/17 07:26:06 INFO ResourceUtils: ==============================================================
+25/06/17 07:26:06 INFO SparkContext: Submitted application: Merger
+25/06/17 07:26:06 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/06/17 07:26:06 INFO ResourceProfile: Limiting resource is cpu
+25/06/17 07:26:06 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/06/17 07:26:06 INFO SecurityManager: Changing view acls to: root
+25/06/17 07:26:06 INFO SecurityManager: Changing modify acls to: root
+25/06/17 07:26:06 INFO SecurityManager: Changing view acls groups to: 
+25/06/17 07:26:06 INFO SecurityManager: Changing modify acls groups to: 
+25/06/17 07:26:06 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/06/17 07:26:07 INFO Utils: Successfully started service 'sparkDriver' on port 36503.
+25/06/17 07:26:07 INFO SparkEnv: Registering MapOutputTracker
+25/06/17 07:26:07 INFO SparkEnv: Registering BlockManagerMaster
+25/06/17 07:26:07 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/06/17 07:26:07 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/06/17 07:26:07 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/06/17 07:26:07 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-141ed136-82f3-44ca-a7bf-6758fd5c0bf7
+25/06/17 07:26:07 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/06/17 07:26:07 INFO SparkEnv: Registering OutputCommitCoordinator
+25/06/17 07:26:08 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/06/17 07:26:08 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/06/17 07:26:08 INFO Executor: Starting executor ID driver on host 3667490ae56e
+25/06/17 07:26:08 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 07:26:08 INFO Executor: Java version 11.0.27
+25/06/17 07:26:08 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/06/17 07:26:08 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@1671d36e for default.
+25/06/17 07:26:08 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37489.
+25/06/17 07:26:08 INFO NettyBlockTransferService: Server created on 3667490ae56e:37489
+25/06/17 07:26:08 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/06/17 07:26:08 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 3667490ae56e, 37489, None)
+25/06/17 07:26:08 INFO BlockManagerMasterEndpoint: Registering block manager 3667490ae56e:37489 with 434.4 MiB RAM, BlockManagerId(driver, 3667490ae56e, 37489, None)
+25/06/17 07:26:08 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 3667490ae56e, 37489, None)
+25/06/17 07:26:08 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 3667490ae56e, 37489, None)
+25/06/17 07:26:12 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/06/17 07:26:12 INFO SharedState: Warehouse path is 'file:/root/spark-warehouse'.
+25/06/17 07:26:15 INFO InMemoryFileIndex: It took 856 ms to list leaf files for 1 paths.
+25/06/17 07:26:15 INFO HadoopFSUtils: Listing leaf files and directories in parallel under 49 paths. The first several paths are: file:/app/data_lake/logs_to_merge/part-00000-0c2ec0b8-be3a-47c7-a278-4f4a94e2488a-c000.json, file:/app/data_lake/logs_to_merge/part-00000-14433430-c55e-4f4d-b485-c394440da43f-c000.json, file:/app/data_lake/logs_to_merge/part-00000-14df73db-32a1-4607-87af-d35448407718-c000.json, file:/app/data_lake/logs_to_merge/part-00000-17457804-c884-4722-ac8e-f30806763c23-c000.json, file:/app/data_lake/logs_to_merge/part-00000-176427eb-1eba-4a8d-a325-9834a2477e87-c000.json, file:/app/data_lake/logs_to_merge/part-00000-178d45de-0476-4cd9-bf11-3fbf03556d79-c000.json, file:/app/data_lake/logs_to_merge/part-00000-2617bfd2-c853-4f60-b218-542ef828165f-c000.json, file:/app/data_lake/logs_to_merge/part-00000-2b690c02-22ea-48cd-9bae-0eb3e33dae39-c000.json, file:/app/data_lake/logs_to_merge/part-00000-32560cb7-6e8e-47f1-aa0a-7f039941565c-c000.json, file:/app/data_lake/logs_to_merge/part-00000-332a21ec-fbfd-469a-8fe1-3064bee54dab-c000.json.
+25/06/17 07:26:16 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 07:26:16 INFO DAGScheduler: Got job 0 (json at NativeMethodAccessorImpl.java:0) with 49 output partitions
+25/06/17 07:26:16 INFO DAGScheduler: Final stage: ResultStage 0 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 07:26:16 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 07:26:16 INFO DAGScheduler: Missing parents: List()
+25/06/17 07:26:16 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 07:26:17 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 102.5 KiB, free 434.3 MiB)
+25/06/17 07:26:17 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 36.8 KiB, free 434.3 MiB)
+25/06/17 07:26:17 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 3667490ae56e:37489 (size: 36.8 KiB, free: 434.4 MiB)
+25/06/17 07:26:17 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1580
+25/06/17 07:26:17 INFO DAGScheduler: Submitting 49 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+25/06/17 07:26:17 INFO TaskSchedulerImpl: Adding task set 0.0 with 49 tasks resource profile 0
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (3667490ae56e, executor driver, partition 0, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (3667490ae56e, executor driver, partition 1, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (3667490ae56e, executor driver, partition 2, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (3667490ae56e, executor driver, partition 3, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (3667490ae56e, executor driver, partition 4, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (3667490ae56e, executor driver, partition 5, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (3667490ae56e, executor driver, partition 6, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (3667490ae56e, executor driver, partition 7, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (3667490ae56e, executor driver, partition 8, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (3667490ae56e, executor driver, partition 9, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (3667490ae56e, executor driver, partition 10, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (3667490ae56e, executor driver, partition 11, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 12.0 in stage 0.0 (TID 12) (3667490ae56e, executor driver, partition 12, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 13.0 in stage 0.0 (TID 13) (3667490ae56e, executor driver, partition 13, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 14.0 in stage 0.0 (TID 14) (3667490ae56e, executor driver, partition 14, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO TaskSetManager: Starting task 15.0 in stage 0.0 (TID 15) (3667490ae56e, executor driver, partition 15, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:17 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+25/06/17 07:26:17 INFO Executor: Running task 13.0 in stage 0.0 (TID 13)
+25/06/17 07:26:17 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+25/06/17 07:26:17 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+25/06/17 07:26:17 INFO Executor: Running task 15.0 in stage 0.0 (TID 15)
+25/06/17 07:26:17 INFO Executor: Running task 12.0 in stage 0.0 (TID 12)
+25/06/17 07:26:17 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+25/06/17 07:26:17 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/06/17 07:26:17 INFO Executor: Running task 11.0 in stage 0.0 (TID 11)
+25/06/17 07:26:17 INFO Executor: Running task 14.0 in stage 0.0 (TID 14)
+25/06/17 07:26:17 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+25/06/17 07:26:17 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+25/06/17 07:26:17 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+25/06/17 07:26:17 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+25/06/17 07:26:17 INFO Executor: Running task 10.0 in stage 0.0 (TID 10)
+25/06/17 07:26:17 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+25/06/17 07:26:18 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 16.0 in stage 0.0 (TID 16) (3667490ae56e, executor driver, partition 16, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 12.0 in stage 0.0 (TID 12). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 16.0 in stage 0.0 (TID 16)
+25/06/17 07:26:18 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 11.0 in stage 0.0 (TID 11). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 13.0 in stage 0.0 (TID 13). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 15.0 in stage 0.0 (TID 15). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 10.0 in stage 0.0 (TID 10). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 14.0 in stage 0.0 (TID 14). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 17.0 in stage 0.0 (TID 17) (3667490ae56e, executor driver, partition 17, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 17.0 in stage 0.0 (TID 17)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 12.0 in stage 0.0 (TID 12) in 552 ms on 3667490ae56e (executor driver) (1/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 572 ms on 3667490ae56e (executor driver) (2/49)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 18.0 in stage 0.0 (TID 18) (3667490ae56e, executor driver, partition 18, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 706 ms on 3667490ae56e (executor driver) (3/49)
+25/06/17 07:26:18 INFO Executor: Running task 18.0 in stage 0.0 (TID 18)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 19.0 in stage 0.0 (TID 19) (3667490ae56e, executor driver, partition 19, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 620 ms on 3667490ae56e (executor driver) (4/49)
+25/06/17 07:26:18 INFO Executor: Running task 19.0 in stage 0.0 (TID 19)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 20.0 in stage 0.0 (TID 20) (3667490ae56e, executor driver, partition 20, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 16.0 in stage 0.0 (TID 16). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 21.0 in stage 0.0 (TID 21) (3667490ae56e, executor driver, partition 21, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 20.0 in stage 0.0 (TID 20)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 22.0 in stage 0.0 (TID 22) (3667490ae56e, executor driver, partition 22, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 22.0 in stage 0.0 (TID 22)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 23.0 in stage 0.0 (TID 23) (3667490ae56e, executor driver, partition 23, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 21.0 in stage 0.0 (TID 21)
+25/06/17 07:26:18 INFO Executor: Running task 23.0 in stage 0.0 (TID 23)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 24.0 in stage 0.0 (TID 24) (3667490ae56e, executor driver, partition 24, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 24.0 in stage 0.0 (TID 24)
+25/06/17 07:26:18 INFO Executor: Finished task 17.0 in stage 0.0 (TID 17). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 19.0 in stage 0.0 (TID 19). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 18.0 in stage 0.0 (TID 18). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 25.0 in stage 0.0 (TID 25) (3667490ae56e, executor driver, partition 25, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 25.0 in stage 0.0 (TID 25)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 26.0 in stage 0.0 (TID 26) (3667490ae56e, executor driver, partition 26, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 26.0 in stage 0.0 (TID 26)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 27.0 in stage 0.0 (TID 27) (3667490ae56e, executor driver, partition 27, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 27.0 in stage 0.0 (TID 27)
+25/06/17 07:26:18 INFO Executor: Finished task 20.0 in stage 0.0 (TID 20). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 28.0 in stage 0.0 (TID 28) (3667490ae56e, executor driver, partition 28, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 749 ms on 3667490ae56e (executor driver) (5/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 15.0 in stage 0.0 (TID 15) in 689 ms on 3667490ae56e (executor driver) (6/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 751 ms on 3667490ae56e (executor driver) (7/49)
+25/06/17 07:26:18 INFO Executor: Finished task 22.0 in stage 0.0 (TID 22). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 28.0 in stage 0.0 (TID 28)
+25/06/17 07:26:18 INFO Executor: Finished task 24.0 in stage 0.0 (TID 24). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 13.0 in stage 0.0 (TID 13) in 717 ms on 3667490ae56e (executor driver) (8/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 796 ms on 3667490ae56e (executor driver) (9/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 753 ms on 3667490ae56e (executor driver) (10/49)
+25/06/17 07:26:18 INFO Executor: Finished task 25.0 in stage 0.0 (TID 25). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 768 ms on 3667490ae56e (executor driver) (11/49)
+25/06/17 07:26:18 INFO Executor: Finished task 23.0 in stage 0.0 (TID 23). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 14.0 in stage 0.0 (TID 14) in 747 ms on 3667490ae56e (executor driver) (12/49)
+25/06/17 07:26:18 INFO Executor: Finished task 21.0 in stage 0.0 (TID 21). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 29.0 in stage 0.0 (TID 29) (3667490ae56e, executor driver, partition 29, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 26.0 in stage 0.0 (TID 26). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 27.0 in stage 0.0 (TID 27). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 29.0 in stage 0.0 (TID 29)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 30.0 in stage 0.0 (TID 30) (3667490ae56e, executor driver, partition 30, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 780 ms on 3667490ae56e (executor driver) (13/49)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 31.0 in stage 0.0 (TID 31) (3667490ae56e, executor driver, partition 31, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 30.0 in stage 0.0 (TID 30)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 32.0 in stage 0.0 (TID 32) (3667490ae56e, executor driver, partition 32, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 32.0 in stage 0.0 (TID 32)
+25/06/17 07:26:18 INFO Executor: Running task 31.0 in stage 0.0 (TID 31)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 33.0 in stage 0.0 (TID 33) (3667490ae56e, executor driver, partition 33, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 28.0 in stage 0.0 (TID 28). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 33.0 in stage 0.0 (TID 33)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 34.0 in stage 0.0 (TID 34) (3667490ae56e, executor driver, partition 34, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 16.0 in stage 0.0 (TID 16) in 267 ms on 3667490ae56e (executor driver) (14/49)
+25/06/17 07:26:18 INFO Executor: Running task 34.0 in stage 0.0 (TID 34)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 831 ms on 3667490ae56e (executor driver) (15/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 811 ms on 3667490ae56e (executor driver) (16/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 837 ms on 3667490ae56e (executor driver) (17/49)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 35.0 in stage 0.0 (TID 35) (3667490ae56e, executor driver, partition 35, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 36.0 in stage 0.0 (TID 36) (3667490ae56e, executor driver, partition 36, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 35.0 in stage 0.0 (TID 35)
+25/06/17 07:26:18 INFO Executor: Running task 36.0 in stage 0.0 (TID 36)
+25/06/17 07:26:18 INFO Executor: Finished task 29.0 in stage 0.0 (TID 29). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 17.0 in stage 0.0 (TID 17) in 259 ms on 3667490ae56e (executor driver) (18/49)
+25/06/17 07:26:18 INFO Executor: Finished task 32.0 in stage 0.0 (TID 32). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 30.0 in stage 0.0 (TID 30). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 18.0 in stage 0.0 (TID 18) in 240 ms on 3667490ae56e (executor driver) (19/49)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 37.0 in stage 0.0 (TID 37) (3667490ae56e, executor driver, partition 37, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 38.0 in stage 0.0 (TID 38) (3667490ae56e, executor driver, partition 38, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 37.0 in stage 0.0 (TID 37)
+25/06/17 07:26:18 INFO Executor: Running task 38.0 in stage 0.0 (TID 38)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 39.0 in stage 0.0 (TID 39) (3667490ae56e, executor driver, partition 39, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 31.0 in stage 0.0 (TID 31). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 19.0 in stage 0.0 (TID 19) in 259 ms on 3667490ae56e (executor driver) (20/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 20.0 in stage 0.0 (TID 20) in 254 ms on 3667490ae56e (executor driver) (21/49)
+25/06/17 07:26:18 INFO Executor: Running task 39.0 in stage 0.0 (TID 39)
+25/06/17 07:26:18 INFO Executor: Finished task 36.0 in stage 0.0 (TID 36). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 25.0 in stage 0.0 (TID 25) in 212 ms on 3667490ae56e (executor driver) (22/49)
+25/06/17 07:26:18 INFO Executor: Finished task 33.0 in stage 0.0 (TID 33). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 34.0 in stage 0.0 (TID 34). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 24.0 in stage 0.0 (TID 24) in 229 ms on 3667490ae56e (executor driver) (23/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 22.0 in stage 0.0 (TID 22) in 249 ms on 3667490ae56e (executor driver) (24/49)
+25/06/17 07:26:18 INFO Executor: Finished task 35.0 in stage 0.0 (TID 35). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 40.0 in stage 0.0 (TID 40) (3667490ae56e, executor driver, partition 40, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 23.0 in stage 0.0 (TID 23) in 250 ms on 3667490ae56e (executor driver) (25/49)
+25/06/17 07:26:18 INFO Executor: Running task 40.0 in stage 0.0 (TID 40)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 41.0 in stage 0.0 (TID 41) (3667490ae56e, executor driver, partition 41, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 37.0 in stage 0.0 (TID 37). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 41.0 in stage 0.0 (TID 41)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 42.0 in stage 0.0 (TID 42) (3667490ae56e, executor driver, partition 42, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 38.0 in stage 0.0 (TID 38). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Running task 42.0 in stage 0.0 (TID 42)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 43.0 in stage 0.0 (TID 43) (3667490ae56e, executor driver, partition 43, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 44.0 in stage 0.0 (TID 44) (3667490ae56e, executor driver, partition 44, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 43.0 in stage 0.0 (TID 43)
+25/06/17 07:26:18 INFO Executor: Running task 44.0 in stage 0.0 (TID 44)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 45.0 in stage 0.0 (TID 45) (3667490ae56e, executor driver, partition 45, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 21.0 in stage 0.0 (TID 21) in 325 ms on 3667490ae56e (executor driver) (26/49)
+25/06/17 07:26:18 INFO Executor: Running task 45.0 in stage 0.0 (TID 45)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 26.0 in stage 0.0 (TID 26) in 267 ms on 3667490ae56e (executor driver) (27/49)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 46.0 in stage 0.0 (TID 46) (3667490ae56e, executor driver, partition 46, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 46.0 in stage 0.0 (TID 46)
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 47.0 in stage 0.0 (TID 47) (3667490ae56e, executor driver, partition 47, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Finished task 41.0 in stage 0.0 (TID 41). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Starting task 48.0 in stage 0.0 (TID 48) (3667490ae56e, executor driver, partition 48, PROCESS_LOCAL, 7823 bytes) 
+25/06/17 07:26:18 INFO Executor: Running task 47.0 in stage 0.0 (TID 47)
+25/06/17 07:26:18 INFO Executor: Running task 48.0 in stage 0.0 (TID 48)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 27.0 in stage 0.0 (TID 27) in 340 ms on 3667490ae56e (executor driver) (28/49)
+25/06/17 07:26:18 INFO Executor: Finished task 40.0 in stage 0.0 (TID 40). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 39.0 in stage 0.0 (TID 39). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 28.0 in stage 0.0 (TID 28) in 307 ms on 3667490ae56e (executor driver) (29/49)
+25/06/17 07:26:18 INFO Executor: Finished task 43.0 in stage 0.0 (TID 43). 2698 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 42.0 in stage 0.0 (TID 42). 2784 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 44.0 in stage 0.0 (TID 44). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 30.0 in stage 0.0 (TID 30) in 280 ms on 3667490ae56e (executor driver) (30/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 32.0 in stage 0.0 (TID 32) in 280 ms on 3667490ae56e (executor driver) (31/49)
+25/06/17 07:26:18 INFO Executor: Finished task 45.0 in stage 0.0 (TID 45). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 29.0 in stage 0.0 (TID 29) in 295 ms on 3667490ae56e (executor driver) (32/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 31.0 in stage 0.0 (TID 31) in 292 ms on 3667490ae56e (executor driver) (33/49)
+25/06/17 07:26:18 INFO Executor: Finished task 47.0 in stage 0.0 (TID 47). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 48.0 in stage 0.0 (TID 48). 2741 bytes result sent to driver
+25/06/17 07:26:18 INFO Executor: Finished task 46.0 in stage 0.0 (TID 46). 2784 bytes result sent to driver
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 36.0 in stage 0.0 (TID 36) in 313 ms on 3667490ae56e (executor driver) (34/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 37.0 in stage 0.0 (TID 37) in 297 ms on 3667490ae56e (executor driver) (35/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 38.0 in stage 0.0 (TID 38) in 300 ms on 3667490ae56e (executor driver) (36/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 33.0 in stage 0.0 (TID 33) in 355 ms on 3667490ae56e (executor driver) (37/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 35.0 in stage 0.0 (TID 35) in 336 ms on 3667490ae56e (executor driver) (38/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 34.0 in stage 0.0 (TID 34) in 352 ms on 3667490ae56e (executor driver) (39/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 40.0 in stage 0.0 (TID 40) in 282 ms on 3667490ae56e (executor driver) (40/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 42.0 in stage 0.0 (TID 42) in 273 ms on 3667490ae56e (executor driver) (41/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 44.0 in stage 0.0 (TID 44) in 256 ms on 3667490ae56e (executor driver) (42/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 45.0 in stage 0.0 (TID 45) in 257 ms on 3667490ae56e (executor driver) (43/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 39.0 in stage 0.0 (TID 39) in 321 ms on 3667490ae56e (executor driver) (44/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 41.0 in stage 0.0 (TID 41) in 290 ms on 3667490ae56e (executor driver) (45/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 48.0 in stage 0.0 (TID 48) in 171 ms on 3667490ae56e (executor driver) (46/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 43.0 in stage 0.0 (TID 43) in 282 ms on 3667490ae56e (executor driver) (47/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 46.0 in stage 0.0 (TID 46) in 217 ms on 3667490ae56e (executor driver) (48/49)
+25/06/17 07:26:18 INFO TaskSetManager: Finished task 47.0 in stage 0.0 (TID 47) in 185 ms on 3667490ae56e (executor driver) (49/49)
+25/06/17 07:26:18 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/06/17 07:26:18 INFO DAGScheduler: ResultStage 0 (json at NativeMethodAccessorImpl.java:0) finished in 1.710 s
+25/06/17 07:26:18 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 07:26:18 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/06/17 07:26:18 INFO DAGScheduler: Job 0 finished: json at NativeMethodAccessorImpl.java:0, took 1.836198 s
+25/06/17 07:26:18 INFO InMemoryFileIndex: It took 2789 ms to list leaf files for 49 paths.
+25/06/17 07:26:21 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 3667490ae56e:37489 in memory (size: 36.8 KiB, free: 434.4 MiB)
+25/06/17 07:26:24 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 07:26:24 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 07:26:24 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 199.2 KiB, free 434.2 MiB)
+25/06/17 07:26:24 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 34.2 KiB, free 434.2 MiB)
+25/06/17 07:26:24 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 3667490ae56e:37489 (size: 34.2 KiB, free: 434.4 MiB)
+25/06/17 07:26:24 INFO SparkContext: Created broadcast 1 from json at NativeMethodAccessorImpl.java:0
+25/06/17 07:26:24 INFO FileSourceScanExec: Planning scan with bin packing, max size: 12845811 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 07:26:24 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 07:26:24 INFO DAGScheduler: Got job 1 (json at NativeMethodAccessorImpl.java:0) with 13 output partitions
+25/06/17 07:26:24 INFO DAGScheduler: Final stage: ResultStage 1 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 07:26:24 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 07:26:24 INFO DAGScheduler: Missing parents: List()
+25/06/17 07:26:24 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[5] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 07:26:25 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 16.0 KiB, free 434.2 MiB)
+25/06/17 07:26:25 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 7.5 KiB, free 434.1 MiB)
+25/06/17 07:26:25 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 3667490ae56e:37489 (size: 7.5 KiB, free: 434.4 MiB)
+25/06/17 07:26:25 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1580
+25/06/17 07:26:25 INFO DAGScheduler: Submitting 13 missing tasks from ResultStage 1 (MapPartitionsRDD[5] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+25/06/17 07:26:25 INFO TaskSchedulerImpl: Adding task set 1.0 with 13 tasks resource profile 0
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 49) (3667490ae56e, executor driver, partition 0, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 50) (3667490ae56e, executor driver, partition 1, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 51) (3667490ae56e, executor driver, partition 2, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 52) (3667490ae56e, executor driver, partition 3, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 53) (3667490ae56e, executor driver, partition 4, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 54) (3667490ae56e, executor driver, partition 5, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 55) (3667490ae56e, executor driver, partition 6, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 56) (3667490ae56e, executor driver, partition 7, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 57) (3667490ae56e, executor driver, partition 8, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 58) (3667490ae56e, executor driver, partition 9, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 59) (3667490ae56e, executor driver, partition 10, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 60) (3667490ae56e, executor driver, partition 11, PROCESS_LOCAL, 8721 bytes) 
+25/06/17 07:26:25 INFO TaskSetManager: Starting task 12.0 in stage 1.0 (TID 61) (3667490ae56e, executor driver, partition 12, PROCESS_LOCAL, 8271 bytes) 
+25/06/17 07:26:25 INFO Executor: Running task 1.0 in stage 1.0 (TID 50)
+25/06/17 07:26:25 INFO Executor: Running task 8.0 in stage 1.0 (TID 57)
+25/06/17 07:26:25 INFO Executor: Running task 11.0 in stage 1.0 (TID 60)
+25/06/17 07:26:25 INFO Executor: Running task 9.0 in stage 1.0 (TID 58)
+25/06/17 07:26:25 INFO Executor: Running task 12.0 in stage 1.0 (TID 61)
+25/06/17 07:26:25 INFO Executor: Running task 4.0 in stage 1.0 (TID 53)
+25/06/17 07:26:25 INFO Executor: Running task 5.0 in stage 1.0 (TID 54)
+25/06/17 07:26:25 INFO Executor: Running task 2.0 in stage 1.0 (TID 51)
+25/06/17 07:26:25 INFO Executor: Running task 0.0 in stage 1.0 (TID 49)
+25/06/17 07:26:25 INFO Executor: Running task 3.0 in stage 1.0 (TID 52)
+25/06/17 07:26:25 INFO Executor: Running task 7.0 in stage 1.0 (TID 56)
+25/06/17 07:26:25 INFO Executor: Running task 10.0 in stage 1.0 (TID 59)
+25/06/17 07:26:25 INFO Executor: Running task 6.0 in stage 1.0 (TID 55)
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-4479398c-318c-4612-80a6-63992fab6545-c000.json, range: 0-8391, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-14df73db-32a1-4607-87af-d35448407718-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e6f3ba15-55c3-4a61-9175-ee219e9d8db6-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-de48d3ac-fca1-48ac-b417-f25f4c8c47a6-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-3f5b935f-32c4-4f54-9bb7-aa8e0ac0c375-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-70d49328-d37e-4197-9200-e2993bbc90b2-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-c4be5bad-0999-4cbf-88d6-a89c6317cf46-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-332a21ec-fbfd-469a-8fe1-3064bee54dab-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-176427eb-1eba-4a8d-a325-9834a2477e87-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e7117bbc-93d4-4c02-a4b2-fbde90daee91-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-8e07ce8f-68c5-4a02-b6ae-632e4e958b1e-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-80e86c78-a9fc-4bec-8b8b-b051eaafddba-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:25 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44c776b6-c38c-4c56-b055-758811bcda69-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO CodeGenerator: Code generated in 516.386068 ms
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f7d7a0b1-0668-4352-b35a-bba61d5e5d27-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-423cb46d-bd26-4c23-8c5d-8010ddbb7ad0-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44b34aca-208b-4e9d-a524-8da855a506c4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-9947132e-b1bd-4ae6-a227-40868233b836-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-2617bfd2-c853-4f60-b218-542ef828165f-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a8dcca98-4275-498f-a053-c1976fe85d56-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-df3b600b-6fd2-4b0e-865e-c4afec2a602f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-2b690c02-22ea-48cd-9bae-0eb3e33dae39-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-817c80fe-4a42-42dd-89ca-692dd0829dfb-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-cc7086ec-0df9-47d4-b00c-8ddee783f72e-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-479e698a-5a90-43e2-988f-11d7a4b2c180-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO Executor: Finished task 12.0 in stage 1.0 (TID 61). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 12.0 in stage 1.0 (TID 61) in 1170 ms on 3667490ae56e (executor driver) (1/13)
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-14433430-c55e-4f4d-b485-c394440da43f-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-38c4c21c-32e1-456d-bf77-cb376690bb28-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a0e19c93-5e02-4965-8bad-b63971a03af5-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-62878f4d-4759-40a5-870e-2ca4f1ecb50c-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e6191981-ff60-430a-8a1a-8441f0f1682f-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e3c7678b-5600-419f-aa58-45f1dcd1087f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-af99e746-f0f6-456b-b43d-82831f4aeefa-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d56b447f-ac3f-44ca-89eb-8c330c4413c9-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f9aeb0f2-8612-4c73-8f71-70d4d9eca29f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-32560cb7-6e8e-47f1-aa0a-7f039941565c-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-57eb58cc-879f-4d15-b1b6-741f7f6458f4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-5397e2fb-0c63-4618-9627-c509535bbe26-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-17457804-c884-4722-ac8e-f30806763c23-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-6661dfaa-f90e-45a5-ad95-359b04cf588e-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-42541497-ed15-4f39-a184-455895505b9f-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-0c2ec0b8-be3a-47c7-a278-4f4a94e2488a-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-b0515892-67d7-49f4-aa45-3e983662cfba-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-fb6140d8-4a72-4e7f-b217-5ed455589944-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a6e7ec0c-3bc6-41ba-bc26-45248eac74f8-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-5948b9c7-0f19-4ecc-8d29-3d67d46d6460-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d59670f2-1c8d-4195-9456-d208e5d651c7-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-37c3361d-ba97-48e6-b2eb-c3643a7c469d-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-7f6fd453-6582-4c5b-bc85-e494042fd075-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-178d45de-0476-4cd9-bf11-3fbf03556d79-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:26 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e54168e8-e658-45a6-9a8c-d269556e28b1-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:26 INFO Executor: Finished task 5.0 in stage 1.0 (TID 54). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 2.0 in stage 1.0 (TID 51). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 3.0 in stage 1.0 (TID 52). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 54) in 1472 ms on 3667490ae56e (executor driver) (2/13)
+25/06/17 07:26:26 INFO Executor: Finished task 10.0 in stage 1.0 (TID 59). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 11.0 in stage 1.0 (TID 60). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 51) in 1488 ms on 3667490ae56e (executor driver) (3/13)
+25/06/17 07:26:26 INFO Executor: Finished task 1.0 in stage 1.0 (TID 50). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 9.0 in stage 1.0 (TID 58). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 7.0 in stage 1.0 (TID 56). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 52) in 1504 ms on 3667490ae56e (executor driver) (4/13)
+25/06/17 07:26:26 INFO Executor: Finished task 0.0 in stage 1.0 (TID 49). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 60) in 1491 ms on 3667490ae56e (executor driver) (5/13)
+25/06/17 07:26:26 INFO Executor: Finished task 6.0 in stage 1.0 (TID 55). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO Executor: Finished task 4.0 in stage 1.0 (TID 53). 1962 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 59) in 1497 ms on 3667490ae56e (executor driver) (6/13)
+25/06/17 07:26:26 INFO Executor: Finished task 8.0 in stage 1.0 (TID 57). 2005 bytes result sent to driver
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 50) in 1520 ms on 3667490ae56e (executor driver) (7/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 56) in 1507 ms on 3667490ae56e (executor driver) (8/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 58) in 1501 ms on 3667490ae56e (executor driver) (9/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 49) in 1531 ms on 3667490ae56e (executor driver) (10/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 55) in 1514 ms on 3667490ae56e (executor driver) (11/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 53) in 1521 ms on 3667490ae56e (executor driver) (12/13)
+25/06/17 07:26:26 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 57) in 1514 ms on 3667490ae56e (executor driver) (13/13)
+25/06/17 07:26:26 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+25/06/17 07:26:26 INFO DAGScheduler: ResultStage 1 (json at NativeMethodAccessorImpl.java:0) finished in 1.672 s
+25/06/17 07:26:26 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 07:26:26 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+25/06/17 07:26:26 INFO DAGScheduler: Job 1 finished: json at NativeMethodAccessorImpl.java:0, took 1.703185 s
+25/06/17 07:26:26 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 3667490ae56e:37489 in memory (size: 34.2 KiB, free: 434.4 MiB)
+25/06/17 07:26:26 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 3667490ae56e:37489 in memory (size: 7.5 KiB, free: 434.4 MiB)
+25/06/17 07:26:26 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 07:26:26 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 07:26:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 07:26:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 07:26:27 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 07:26:27 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 199.1 KiB, free 434.2 MiB)
+25/06/17 07:26:27 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 34.1 KiB, free 434.2 MiB)
+25/06/17 07:26:27 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 3667490ae56e:37489 (size: 34.1 KiB, free: 434.4 MiB)
+25/06/17 07:26:27 INFO SparkContext: Created broadcast 3 from json at NativeMethodAccessorImpl.java:0
+25/06/17 07:26:27 INFO FileSourceScanExec: Planning scan with bin packing, max size: 12845811 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 07:26:27 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 07:26:27 INFO DAGScheduler: Got job 2 (json at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/06/17 07:26:27 INFO DAGScheduler: Final stage: ResultStage 2 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 07:26:27 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 07:26:27 INFO DAGScheduler: Missing parents: List()
+25/06/17 07:26:27 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[9] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 07:26:27 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 210.9 KiB, free 434.0 MiB)
+25/06/17 07:26:27 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 76.1 KiB, free 433.9 MiB)
+25/06/17 07:26:27 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 3667490ae56e:37489 (size: 76.1 KiB, free: 434.3 MiB)
+25/06/17 07:26:27 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1580
+25/06/17 07:26:27 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[9] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+25/06/17 07:26:27 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+25/06/17 07:26:27 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 62) (3667490ae56e, executor driver, partition 0, PROCESS_LOCAL, 15988 bytes) 
+25/06/17 07:26:27 INFO Executor: Running task 0.0 in stage 2.0 (TID 62)
+25/06/17 07:26:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 07:26:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 07:26:27 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 07:26:28 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-4479398c-318c-4612-80a6-63992fab6545-c000.json, range: 0-8391, partition values: [empty row]
+25/06/17 07:26:28 INFO CodeGenerator: Code generated in 36.452613 ms
+25/06/17 07:26:28 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-14433430-c55e-4f4d-b485-c394440da43f-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:28 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-17457804-c884-4722-ac8e-f30806763c23-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:28 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-178d45de-0476-4cd9-bf11-3fbf03556d79-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:28 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-332a21ec-fbfd-469a-8fe1-3064bee54dab-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44b34aca-208b-4e9d-a524-8da855a506c4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-57eb58cc-879f-4d15-b1b6-741f7f6458f4-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-7f6fd453-6582-4c5b-bc85-e494042fd075-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-80e86c78-a9fc-4bec-8b8b-b051eaafddba-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-817c80fe-4a42-42dd-89ca-692dd0829dfb-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-af99e746-f0f6-456b-b43d-82831f4aeefa-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-b0515892-67d7-49f4-aa45-3e983662cfba-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:29 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-c4be5bad-0999-4cbf-88d6-a89c6317cf46-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-cc7086ec-0df9-47d4-b00c-8ddee783f72e-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e6191981-ff60-430a-8a1a-8441f0f1682f-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-0c2ec0b8-be3a-47c7-a278-4f4a94e2488a-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-14df73db-32a1-4607-87af-d35448407718-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-2b690c02-22ea-48cd-9bae-0eb3e33dae39-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-32560cb7-6e8e-47f1-aa0a-7f039941565c-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-37c3361d-ba97-48e6-b2eb-c3643a7c469d-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-3f5b935f-32c4-4f54-9bb7-aa8e0ac0c375-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-423cb46d-bd26-4c23-8c5d-8010ddbb7ad0-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-62878f4d-4759-40a5-870e-2ca4f1ecb50c-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:30 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-6661dfaa-f90e-45a5-ad95-359b04cf588e-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-70d49328-d37e-4197-9200-e2993bbc90b2-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-9947132e-b1bd-4ae6-a227-40868233b836-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a0e19c93-5e02-4965-8bad-b63971a03af5-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a6e7ec0c-3bc6-41ba-bc26-45248eac74f8-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-de48d3ac-fca1-48ac-b417-f25f4c8c47a6-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-df3b600b-6fd2-4b0e-865e-c4afec2a602f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e3c7678b-5600-419f-aa58-45f1dcd1087f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e54168e8-e658-45a6-9a8c-d269556e28b1-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:31 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e7117bbc-93d4-4c02-a4b2-fbde90daee91-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f7d7a0b1-0668-4352-b35a-bba61d5e5d27-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-f9aeb0f2-8612-4c73-8f71-70d4d9eca29f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-fb6140d8-4a72-4e7f-b217-5ed455589944-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-176427eb-1eba-4a8d-a325-9834a2477e87-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-2617bfd2-c853-4f60-b218-542ef828165f-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-38c4c21c-32e1-456d-bf77-cb376690bb28-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-42541497-ed15-4f39-a184-455895505b9f-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-44c776b6-c38c-4c56-b055-758811bcda69-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:32 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-479e698a-5a90-43e2-988f-11d7a4b2c180-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-5397e2fb-0c63-4618-9627-c509535bbe26-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-5948b9c7-0f19-4ecc-8d29-3d67d46d6460-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-8e07ce8f-68c5-4a02-b6ae-632e4e958b1e-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-a8dcca98-4275-498f-a053-c1976fe85d56-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d56b447f-ac3f-44ca-89eb-8c330c4413c9-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-d59670f2-1c8d-4195-9456-d208e5d651c7-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:33 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-e6f3ba15-55c3-4a61-9175-ee219e9d8db6-c000.json, range: 0-75, partition values: [empty row]
+25/06/17 07:26:34 INFO FileOutputCommitter: Saved output of task 'attempt_202506170726272724091236743055843_0002_m_000000_62' to file:/app/data_lake/merged/_temporary/0/task_202506170726272724091236743055843_0002_m_000000
+25/06/17 07:26:34 INFO SparkHadoopMapRedUtil: attempt_202506170726272724091236743055843_0002_m_000000_62: Committed. Elapsed time: 135 ms.
+25/06/17 07:26:34 INFO Executor: Finished task 0.0 in stage 2.0 (TID 62). 2502 bytes result sent to driver
+25/06/17 07:26:34 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 62) in 6525 ms on 3667490ae56e (executor driver) (1/1)
+25/06/17 07:26:34 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+25/06/17 07:26:34 INFO DAGScheduler: ResultStage 2 (json at NativeMethodAccessorImpl.java:0) finished in 6.649 s
+25/06/17 07:26:34 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 07:26:34 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+25/06/17 07:26:34 INFO DAGScheduler: Job 2 finished: json at NativeMethodAccessorImpl.java:0, took 6.691114 s
+25/06/17 07:26:34 INFO FileFormatWriter: Start to commit write Job 079de6dc-3649-4449-9a7b-7bbb03a07984.
+25/06/17 07:26:35 INFO FileFormatWriter: Write Job 079de6dc-3649-4449-9a7b-7bbb03a07984 committed. Elapsed time: 752 ms.
+25/06/17 07:26:35 INFO FileFormatWriter: Finished processing stats for write job 079de6dc-3649-4449-9a7b-7bbb03a07984.
+25/06/17 07:26:35 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/06/17 07:26:35 INFO SparkUI: Stopped Spark web UI at http://3667490ae56e:4040
+25/06/17 07:26:35 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/06/17 07:26:35 INFO MemoryStore: MemoryStore cleared
+25/06/17 07:26:35 INFO BlockManager: BlockManager stopped
+25/06/17 07:26:35 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/06/17 07:26:35 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/06/17 07:26:35 INFO SparkContext: Successfully stopped SparkContext
+25/06/17 07:26:36 INFO ShutdownHookManager: Shutdown hook called
+25/06/17 07:26:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-b55cc01e-3ab6-45f2-a69e-3682eadba077/pyspark-92196f61-29ab-4b52-a9b4-a46b3ba9bd17
+25/06/17 07:26:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-2694abf2-7cf6-4729-a98a-3c11588d2c88
+25/06/17 07:26:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-b55cc01e-3ab6-45f2-a69e-3682eadba077
+25/06/17 09:27:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/06/17 09:27:05 INFO SparkContext: Running Spark version 3.5.0
+25/06/17 09:27:05 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:27:05 INFO SparkContext: Java version 11.0.27
+25/06/17 09:27:05 INFO ResourceUtils: ==============================================================
+25/06/17 09:27:05 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/06/17 09:27:05 INFO ResourceUtils: ==============================================================
+25/06/17 09:27:05 INFO SparkContext: Submitted application: Merger
+25/06/17 09:27:05 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/06/17 09:27:05 INFO ResourceProfile: Limiting resource is cpu
+25/06/17 09:27:05 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/06/17 09:27:05 INFO SecurityManager: Changing view acls to: root
+25/06/17 09:27:05 INFO SecurityManager: Changing modify acls to: root
+25/06/17 09:27:05 INFO SecurityManager: Changing view acls groups to: 
+25/06/17 09:27:05 INFO SecurityManager: Changing modify acls groups to: 
+25/06/17 09:27:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/06/17 09:27:05 INFO Utils: Successfully started service 'sparkDriver' on port 35369.
+25/06/17 09:27:05 INFO SparkEnv: Registering MapOutputTracker
+25/06/17 09:27:05 INFO SparkEnv: Registering BlockManagerMaster
+25/06/17 09:27:05 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/06/17 09:27:05 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/06/17 09:27:05 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/06/17 09:27:05 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f28778c7-9bb9-4e21-8d1d-f9ab9c46f858
+25/06/17 09:27:05 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/06/17 09:27:05 INFO SparkEnv: Registering OutputCommitCoordinator
+25/06/17 09:27:06 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/06/17 09:27:06 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/06/17 09:27:06 INFO SparkContext: Added JAR file:///spark/jars/delta-core_2.12-3.1.0.jar at spark://d4029d04b26e:35369/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO SparkContext: Added JAR file:///spark/jars/delta-storage-3.1.0.jar at spark://d4029d04b26e:35369/jars/delta-storage-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO SparkContext: Added JAR file:///spark/jars/delta-spark_2.12-3.1.0.jar at spark://d4029d04b26e:35369/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO Executor: Starting executor ID driver on host d4029d04b26e
+25/06/17 09:27:06 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:27:06 INFO Executor: Java version 11.0.27
+25/06/17 09:27:06 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/06/17 09:27:06 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@5cb97f75 for default.
+25/06/17 09:27:06 INFO Executor: Fetching spark://d4029d04b26e:35369/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO TransportClientFactory: Successfully created connection to d4029d04b26e/172.21.0.11:35369 after 28 ms (0 ms spent in bootstraps)
+25/06/17 09:27:06 INFO Utils: Fetching spark://d4029d04b26e:35369/jars/delta-spark_2.12-3.1.0.jar to /tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/fetchFileTemp7776690845827217641.tmp
+25/06/17 09:27:06 INFO Executor: Adding file:/tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/delta-spark_2.12-3.1.0.jar to class loader default
+25/06/17 09:27:06 INFO Executor: Fetching spark://d4029d04b26e:35369/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO Utils: Fetching spark://d4029d04b26e:35369/jars/delta-core_2.12-3.1.0.jar to /tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/fetchFileTemp16831254957440662290.tmp
+25/06/17 09:27:06 INFO Executor: Adding file:/tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/delta-core_2.12-3.1.0.jar to class loader default
+25/06/17 09:27:06 INFO Executor: Fetching spark://d4029d04b26e:35369/jars/delta-storage-3.1.0.jar with timestamp 1750152425363
+25/06/17 09:27:06 INFO Utils: Fetching spark://d4029d04b26e:35369/jars/delta-storage-3.1.0.jar to /tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/fetchFileTemp15484823089347216187.tmp
+25/06/17 09:27:06 INFO Executor: Adding file:/tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/userFiles-210cd507-a54e-4ae0-9ab7-9cf6c69a638d/delta-storage-3.1.0.jar to class loader default
+25/06/17 09:27:06 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35767.
+25/06/17 09:27:06 INFO NettyBlockTransferService: Server created on d4029d04b26e:35767
+25/06/17 09:27:06 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/06/17 09:27:06 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, d4029d04b26e, 35767, None)
+25/06/17 09:27:06 INFO BlockManagerMasterEndpoint: Registering block manager d4029d04b26e:35767 with 434.4 MiB RAM, BlockManagerId(driver, d4029d04b26e, 35767, None)
+25/06/17 09:27:06 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, d4029d04b26e, 35767, None)
+25/06/17 09:27:06 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, d4029d04b26e, 35767, None)
+25/06/17 09:27:06 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/06/17 09:27:06 INFO SharedState: Warehouse path is 'file:/root/spark-warehouse'.
+25/06/17 09:27:07 INFO InMemoryFileIndex: It took 115 ms to list leaf files for 1 paths.
+25/06/17 09:27:07 INFO InMemoryFileIndex: It took 77 ms to list leaf files for 10 paths.
+25/06/17 09:27:09 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 09:27:09 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 09:27:09 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 200.7 KiB, free 434.2 MiB)
+25/06/17 09:27:10 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 434.2 MiB)
+25/06/17 09:27:10 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on d4029d04b26e:35767 (size: 34.7 KiB, free: 434.4 MiB)
+25/06/17 09:27:10 INFO SparkContext: Created broadcast 0 from json at NativeMethodAccessorImpl.java:0
+25/06/17 09:27:10 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 09:27:10 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 09:27:10 INFO DAGScheduler: Got job 0 (json at NativeMethodAccessorImpl.java:0) with 10 output partitions
+25/06/17 09:27:10 INFO DAGScheduler: Final stage: ResultStage 0 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 09:27:10 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 09:27:10 INFO DAGScheduler: Missing parents: List()
+25/06/17 09:27:10 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 09:27:10 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 16.7 KiB, free 434.2 MiB)
+25/06/17 09:27:10 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.8 KiB, free 434.1 MiB)
+25/06/17 09:27:10 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on d4029d04b26e:35767 (size: 7.8 KiB, free: 434.4 MiB)
+25/06/17 09:27:10 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+25/06/17 09:27:10 INFO DAGScheduler: Submitting 10 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+25/06/17 09:27:10 INFO TaskSchedulerImpl: Adding task set 0.0 with 10 tasks resource profile 0
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (d4029d04b26e, executor driver, partition 0, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (d4029d04b26e, executor driver, partition 1, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (d4029d04b26e, executor driver, partition 2, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (d4029d04b26e, executor driver, partition 3, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (d4029d04b26e, executor driver, partition 4, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (d4029d04b26e, executor driver, partition 5, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (d4029d04b26e, executor driver, partition 6, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (d4029d04b26e, executor driver, partition 7, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (d4029d04b26e, executor driver, partition 8, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (d4029d04b26e, executor driver, partition 9, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:27:10 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+25/06/17 09:27:10 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+25/06/17 09:27:10 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+25/06/17 09:27:10 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+25/06/17 09:27:10 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+25/06/17 09:27:10 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+25/06/17 09:27:10 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+25/06/17 09:27:10 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/06/17 09:27:10 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+25/06/17 09:27:10 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-ec197393-22df-4dfc-b7fc-571c56b4c830-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-dee571da-e89e-407b-b9c5-7f3336126005-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-192da124-ac12-4510-848d-4ae10dc400d6-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-aad1bbf4-c39b-4932-8008-72b38eb7e0a1-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-cd98951c-ba99-4329-b215-a891268cab36-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-04f70ddc-9b63-4dc8-926e-e43ebc91825d-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-4855661c-e200-41da-9701-cb84fd2ed5ec-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-88721036-ad33-4517-aa7f-a442032d9b21-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-49fcd63d-8865-4636-a422-6dd82f74b689-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:10 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-96716771-8c3e-4e88-ade3-5ee3b3fb0146-c000.json, range: 0-10101, partition values: [empty row]
+25/06/17 09:27:10 INFO CodeGenerator: Code generated in 156.042738 ms
+25/06/17 09:27:10 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 2048 bytes result sent to driver
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 459 ms on d4029d04b26e (executor driver) (1/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 463 ms on d4029d04b26e (executor driver) (2/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 478 ms on d4029d04b26e (executor driver) (3/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 463 ms on d4029d04b26e (executor driver) (4/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 461 ms on d4029d04b26e (executor driver) (5/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 462 ms on d4029d04b26e (executor driver) (6/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 466 ms on d4029d04b26e (executor driver) (7/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 467 ms on d4029d04b26e (executor driver) (8/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 463 ms on d4029d04b26e (executor driver) (9/10)
+25/06/17 09:27:10 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 469 ms on d4029d04b26e (executor driver) (10/10)
+25/06/17 09:27:10 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/06/17 09:27:10 INFO DAGScheduler: ResultStage 0 (json at NativeMethodAccessorImpl.java:0) finished in 0.596 s
+25/06/17 09:27:10 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 09:27:10 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/06/17 09:27:10 INFO DAGScheduler: Job 0 finished: json at NativeMethodAccessorImpl.java:0, took 0.633058 s
+25/06/17 09:27:10 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 09:27:10 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 09:27:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 09:27:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 09:27:11 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 09:27:11 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 200.6 KiB, free 434.0 MiB)
+25/06/17 09:27:11 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 433.9 MiB)
+25/06/17 09:27:11 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on d4029d04b26e:35767 (size: 34.7 KiB, free: 434.3 MiB)
+25/06/17 09:27:11 INFO SparkContext: Created broadcast 2 from json at NativeMethodAccessorImpl.java:0
+25/06/17 09:27:11 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 09:27:11 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 09:27:11 INFO DAGScheduler: Got job 1 (json at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/06/17 09:27:11 INFO DAGScheduler: Final stage: ResultStage 1 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 09:27:11 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 09:27:11 INFO DAGScheduler: Missing parents: List()
+25/06/17 09:27:11 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 09:27:11 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 213.0 KiB, free 433.7 MiB)
+25/06/17 09:27:11 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 77.0 KiB, free 433.6 MiB)
+25/06/17 09:27:11 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on d4029d04b26e:35767 (size: 77.0 KiB, free: 434.2 MiB)
+25/06/17 09:27:11 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1580
+25/06/17 09:27:11 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+25/06/17 09:27:11 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+25/06/17 09:27:11 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 10) (d4029d04b26e, executor driver, partition 0, PROCESS_LOCAL, 10449 bytes) 
+25/06/17 09:27:11 INFO Executor: Running task 0.0 in stage 1.0 (TID 10)
+25/06/17 09:27:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 09:27:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 09:27:11 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-96716771-8c3e-4e88-ade3-5ee3b3fb0146-c000.json, range: 0-10101, partition values: [empty row]
+25/06/17 09:27:11 INFO CodeGenerator: Code generated in 11.874034 ms
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-04f70ddc-9b63-4dc8-926e-e43ebc91825d-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-49fcd63d-8865-4636-a422-6dd82f74b689-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-cd98951c-ba99-4329-b215-a891268cab36-c000.json, range: 0-79, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-192da124-ac12-4510-848d-4ae10dc400d6-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-4855661c-e200-41da-9701-cb84fd2ed5ec-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-88721036-ad33-4517-aa7f-a442032d9b21-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-aad1bbf4-c39b-4932-8008-72b38eb7e0a1-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-dee571da-e89e-407b-b9c5-7f3336126005-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-ec197393-22df-4dfc-b7fc-571c56b4c830-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:27:11 INFO FileOutputCommitter: Saved output of task 'attempt_202506170927115857764608737372763_0001_m_000000_10' to file:/app/data_lake/merged/_temporary/0/task_202506170927115857764608737372763_0001_m_000000
+25/06/17 09:27:11 INFO SparkHadoopMapRedUtil: attempt_202506170927115857764608737372763_0001_m_000000_10: Committed. Elapsed time: 30 ms.
+25/06/17 09:27:11 INFO Executor: Finished task 0.0 in stage 1.0 (TID 10). 2502 bytes result sent to driver
+25/06/17 09:27:11 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 10) in 459 ms on d4029d04b26e (executor driver) (1/1)
+25/06/17 09:27:11 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+25/06/17 09:27:11 INFO DAGScheduler: ResultStage 1 (json at NativeMethodAccessorImpl.java:0) finished in 0.486 s
+25/06/17 09:27:11 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 09:27:11 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+25/06/17 09:27:11 INFO DAGScheduler: Job 1 finished: json at NativeMethodAccessorImpl.java:0, took 0.493492 s
+25/06/17 09:27:11 INFO FileFormatWriter: Start to commit write Job bf5e9939-a07f-42ef-b92e-88b9ae173f99.
+25/06/17 09:27:11 INFO FileFormatWriter: Write Job bf5e9939-a07f-42ef-b92e-88b9ae173f99 committed. Elapsed time: 179 ms.
+25/06/17 09:27:11 INFO FileFormatWriter: Finished processing stats for write job bf5e9939-a07f-42ef-b92e-88b9ae173f99.
+25/06/17 09:27:11 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/06/17 09:27:11 INFO SparkUI: Stopped Spark web UI at http://d4029d04b26e:4040
+25/06/17 09:27:11 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/06/17 09:27:11 INFO MemoryStore: MemoryStore cleared
+25/06/17 09:27:11 INFO BlockManager: BlockManager stopped
+25/06/17 09:27:11 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/06/17 09:27:11 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/06/17 09:27:11 INFO SparkContext: Successfully stopped SparkContext
+25/06/17 09:27:12 INFO ShutdownHookManager: Shutdown hook called
+25/06/17 09:27:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-ffa96856-6309-4def-83a4-37374fcd0da6
+25/06/17 09:27:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca
+25/06/17 09:27:12 INFO ShutdownHookManager: Deleting directory /tmp/spark-656ba17e-3fa8-492a-a320-76b02a6f7eca/pyspark-508aceba-2d8d-495c-b31c-392a7cf5a75f
+25/06/17 09:28:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/06/17 09:28:03 INFO SparkContext: Running Spark version 3.5.0
+25/06/17 09:28:03 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:28:03 INFO SparkContext: Java version 11.0.27
+25/06/17 09:28:03 INFO ResourceUtils: ==============================================================
+25/06/17 09:28:03 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/06/17 09:28:03 INFO ResourceUtils: ==============================================================
+25/06/17 09:28:03 INFO SparkContext: Submitted application: Merger
+25/06/17 09:28:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/06/17 09:28:03 INFO ResourceProfile: Limiting resource is cpu
+25/06/17 09:28:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/06/17 09:28:03 INFO SecurityManager: Changing view acls to: root
+25/06/17 09:28:03 INFO SecurityManager: Changing modify acls to: root
+25/06/17 09:28:03 INFO SecurityManager: Changing view acls groups to: 
+25/06/17 09:28:03 INFO SecurityManager: Changing modify acls groups to: 
+25/06/17 09:28:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/06/17 09:28:03 INFO Utils: Successfully started service 'sparkDriver' on port 46021.
+25/06/17 09:28:03 INFO SparkEnv: Registering MapOutputTracker
+25/06/17 09:28:03 INFO SparkEnv: Registering BlockManagerMaster
+25/06/17 09:28:03 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/06/17 09:28:03 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/06/17 09:28:03 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/06/17 09:28:03 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4f8a3f21-34f2-4b2c-bf30-f8a820c57f09
+25/06/17 09:28:03 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/06/17 09:28:03 INFO SparkEnv: Registering OutputCommitCoordinator
+25/06/17 09:28:03 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/06/17 09:28:03 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/06/17 09:28:03 INFO SparkContext: Added JAR file:///spark/jars/delta-core_2.12-3.1.0.jar at spark://d4029d04b26e:46021/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO SparkContext: Added JAR file:///spark/jars/delta-storage-3.1.0.jar at spark://d4029d04b26e:46021/jars/delta-storage-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO SparkContext: Added JAR file:///spark/jars/delta-spark_2.12-3.1.0.jar at spark://d4029d04b26e:46021/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO Executor: Starting executor ID driver on host d4029d04b26e
+25/06/17 09:28:03 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:28:03 INFO Executor: Java version 11.0.27
+25/06/17 09:28:03 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/06/17 09:28:03 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@697430be for default.
+25/06/17 09:28:03 INFO Executor: Fetching spark://d4029d04b26e:46021/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO TransportClientFactory: Successfully created connection to d4029d04b26e/172.21.0.11:46021 after 17 ms (0 ms spent in bootstraps)
+25/06/17 09:28:03 INFO Utils: Fetching spark://d4029d04b26e:46021/jars/delta-core_2.12-3.1.0.jar to /tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/fetchFileTemp7067490017398396975.tmp
+25/06/17 09:28:03 INFO Executor: Adding file:/tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/delta-core_2.12-3.1.0.jar to class loader default
+25/06/17 09:28:03 INFO Executor: Fetching spark://d4029d04b26e:46021/jars/delta-storage-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO Utils: Fetching spark://d4029d04b26e:46021/jars/delta-storage-3.1.0.jar to /tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/fetchFileTemp6327847350487995523.tmp
+25/06/17 09:28:03 INFO Executor: Adding file:/tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/delta-storage-3.1.0.jar to class loader default
+25/06/17 09:28:03 INFO Executor: Fetching spark://d4029d04b26e:46021/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152483180
+25/06/17 09:28:03 INFO Utils: Fetching spark://d4029d04b26e:46021/jars/delta-spark_2.12-3.1.0.jar to /tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/fetchFileTemp14540674071160833413.tmp
+25/06/17 09:28:03 INFO Executor: Adding file:/tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/userFiles-ddb3d371-7afa-4f58-beb6-067d53e5a4f4/delta-spark_2.12-3.1.0.jar to class loader default
+25/06/17 09:28:03 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36509.
+25/06/17 09:28:03 INFO NettyBlockTransferService: Server created on d4029d04b26e:36509
+25/06/17 09:28:03 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/06/17 09:28:03 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, d4029d04b26e, 36509, None)
+25/06/17 09:28:03 INFO BlockManagerMasterEndpoint: Registering block manager d4029d04b26e:36509 with 434.4 MiB RAM, BlockManagerId(driver, d4029d04b26e, 36509, None)
+25/06/17 09:28:03 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, d4029d04b26e, 36509, None)
+25/06/17 09:28:03 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, d4029d04b26e, 36509, None)
+25/06/17 09:28:04 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/06/17 09:28:04 INFO SharedState: Warehouse path is 'file:/root/spark-warehouse'.
+25/06/17 09:28:04 INFO InMemoryFileIndex: It took 51 ms to list leaf files for 1 paths.
+25/06/17 09:28:04 INFO InMemoryFileIndex: It took 18 ms to list leaf files for 3 paths.
+25/06/17 09:28:06 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 09:28:06 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 09:28:06 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 200.7 KiB, free 434.2 MiB)
+25/06/17 09:28:06 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.7 KiB, free 434.2 MiB)
+25/06/17 09:28:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on d4029d04b26e:36509 (size: 34.7 KiB, free: 434.4 MiB)
+25/06/17 09:28:06 INFO SparkContext: Created broadcast 0 from json at NativeMethodAccessorImpl.java:0
+25/06/17 09:28:06 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 09:28:06 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 09:28:06 INFO DAGScheduler: Got job 0 (json at NativeMethodAccessorImpl.java:0) with 3 output partitions
+25/06/17 09:28:06 INFO DAGScheduler: Final stage: ResultStage 0 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 09:28:06 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 09:28:06 INFO DAGScheduler: Missing parents: List()
+25/06/17 09:28:06 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 09:28:06 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 16.7 KiB, free 434.2 MiB)
+25/06/17 09:28:06 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.8 KiB, free 434.1 MiB)
+25/06/17 09:28:06 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on d4029d04b26e:36509 (size: 7.8 KiB, free: 434.4 MiB)
+25/06/17 09:28:06 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+25/06/17 09:28:06 INFO DAGScheduler: Submitting 3 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2))
+25/06/17 09:28:06 INFO TaskSchedulerImpl: Adding task set 0.0 with 3 tasks resource profile 0
+25/06/17 09:28:06 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (d4029d04b26e, executor driver, partition 0, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:28:06 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (d4029d04b26e, executor driver, partition 1, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:28:06 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (d4029d04b26e, executor driver, partition 2, PROCESS_LOCAL, 8654 bytes) 
+25/06/17 09:28:06 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+25/06/17 09:28:06 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/06/17 09:28:06 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+25/06/17 09:28:06 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-04f81078-dac6-4248-8a11-54ee06a2b5f2-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:06 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-863f79a6-2860-4634-b614-4a8471aa725f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:06 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-02be4358-6d93-4ffc-a9f4-9d3347d8664e-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:06 INFO CodeGenerator: Code generated in 117.534892 ms
+25/06/17 09:28:07 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2048 bytes result sent to driver
+25/06/17 09:28:07 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 2048 bytes result sent to driver
+25/06/17 09:28:07 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 2048 bytes result sent to driver
+25/06/17 09:28:07 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 335 ms on d4029d04b26e (executor driver) (1/3)
+25/06/17 09:28:07 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 351 ms on d4029d04b26e (executor driver) (2/3)
+25/06/17 09:28:07 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 336 ms on d4029d04b26e (executor driver) (3/3)
+25/06/17 09:28:07 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+25/06/17 09:28:07 INFO DAGScheduler: ResultStage 0 (json at NativeMethodAccessorImpl.java:0) finished in 0.447 s
+25/06/17 09:28:07 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 09:28:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+25/06/17 09:28:07 INFO DAGScheduler: Job 0 finished: json at NativeMethodAccessorImpl.java:0, took 0.478485 s
+25/06/17 09:28:07 INFO FileSourceStrategy: Pushed Filters: 
+25/06/17 09:28:07 INFO FileSourceStrategy: Post-Scan Filters: 
+25/06/17 09:28:07 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 09:28:07 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 09:28:07 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 09:28:07 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 200.6 KiB, free 434.0 MiB)
+25/06/17 09:28:07 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 34.6 KiB, free 433.9 MiB)
+25/06/17 09:28:07 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on d4029d04b26e:36509 (size: 34.6 KiB, free: 434.3 MiB)
+25/06/17 09:28:07 INFO SparkContext: Created broadcast 2 from json at NativeMethodAccessorImpl.java:0
+25/06/17 09:28:07 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+25/06/17 09:28:07 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+25/06/17 09:28:07 INFO DAGScheduler: Got job 1 (json at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/06/17 09:28:07 INFO DAGScheduler: Final stage: ResultStage 1 (json at NativeMethodAccessorImpl.java:0)
+25/06/17 09:28:07 INFO DAGScheduler: Parents of final stage: List()
+25/06/17 09:28:07 INFO DAGScheduler: Missing parents: List()
+25/06/17 09:28:07 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+25/06/17 09:28:07 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 213.0 KiB, free 433.7 MiB)
+25/06/17 09:28:07 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 77.0 KiB, free 433.6 MiB)
+25/06/17 09:28:07 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on d4029d04b26e:36509 (size: 77.0 KiB, free: 434.2 MiB)
+25/06/17 09:28:07 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1580
+25/06/17 09:28:07 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+25/06/17 09:28:07 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+25/06/17 09:28:07 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 3) (d4029d04b26e, executor driver, partition 0, PROCESS_LOCAL, 9231 bytes) 
+25/06/17 09:28:07 INFO Executor: Running task 0.0 in stage 1.0 (TID 3)
+25/06/17 09:28:07 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+25/06/17 09:28:07 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+25/06/17 09:28:07 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+25/06/17 09:28:07 INFO BlockManagerInfo: Removed broadcast_0_piece0 on d4029d04b26e:36509 in memory (size: 34.7 KiB, free: 434.3 MiB)
+25/06/17 09:28:07 INFO BlockManagerInfo: Removed broadcast_1_piece0 on d4029d04b26e:36509 in memory (size: 7.8 KiB, free: 434.3 MiB)
+25/06/17 09:28:07 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-02be4358-6d93-4ffc-a9f4-9d3347d8664e-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:07 INFO CodeGenerator: Code generated in 9.20762 ms
+25/06/17 09:28:07 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-04f81078-dac6-4248-8a11-54ee06a2b5f2-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:07 INFO FileScanRDD: Reading File path: file:///app/data_lake/logs_to_merge/part-00000-863f79a6-2860-4634-b614-4a8471aa725f-c000.json, range: 0-77, partition values: [empty row]
+25/06/17 09:28:07 INFO FileOutputCommitter: Saved output of task 'attempt_202506170928071597396443154398134_0001_m_000000_3' to file:/app/data_lake/merged/_temporary/0/task_202506170928071597396443154398134_0001_m_000000
+25/06/17 09:28:07 INFO SparkHadoopMapRedUtil: attempt_202506170928071597396443154398134_0001_m_000000_3: Committed. Elapsed time: 28 ms.
+25/06/17 09:28:07 INFO Executor: Finished task 0.0 in stage 1.0 (TID 3). 2545 bytes result sent to driver
+25/06/17 09:28:07 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 3) in 271 ms on d4029d04b26e (executor driver) (1/1)
+25/06/17 09:28:07 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+25/06/17 09:28:07 INFO DAGScheduler: ResultStage 1 (json at NativeMethodAccessorImpl.java:0) finished in 0.297 s
+25/06/17 09:28:07 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+25/06/17 09:28:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+25/06/17 09:28:07 INFO DAGScheduler: Job 1 finished: json at NativeMethodAccessorImpl.java:0, took 0.306043 s
+25/06/17 09:28:07 INFO FileFormatWriter: Start to commit write Job 936b8002-973a-4ed0-99cb-d7ccda9b2f5c.
+25/06/17 09:28:07 INFO FileFormatWriter: Write Job 936b8002-973a-4ed0-99cb-d7ccda9b2f5c committed. Elapsed time: 130 ms.
+25/06/17 09:28:07 INFO FileFormatWriter: Finished processing stats for write job 936b8002-973a-4ed0-99cb-d7ccda9b2f5c.
+25/06/17 09:28:07 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/06/17 09:28:07 INFO SparkUI: Stopped Spark web UI at http://d4029d04b26e:4040
+25/06/17 09:28:07 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/06/17 09:28:07 INFO MemoryStore: MemoryStore cleared
+25/06/17 09:28:07 INFO BlockManager: BlockManager stopped
+25/06/17 09:28:07 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/06/17 09:28:07 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/06/17 09:28:07 INFO SparkContext: Successfully stopped SparkContext
+25/06/17 09:28:08 INFO ShutdownHookManager: Shutdown hook called
+25/06/17 09:28:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d
+25/06/17 09:28:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-b32265ef-3a8b-4e88-a2ba-e2febdd1ad69
+25/06/17 09:28:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-eff4665b-0bc5-4cef-961d-71535e4cf16d/pyspark-648e4127-5b30-4dd0-8059-037b612ca23b
+25/06/17 09:29:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/06/17 09:29:03 INFO SparkContext: Running Spark version 3.5.0
+25/06/17 09:29:03 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:29:03 INFO SparkContext: Java version 11.0.27
+25/06/17 09:29:03 INFO ResourceUtils: ==============================================================
+25/06/17 09:29:03 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/06/17 09:29:03 INFO ResourceUtils: ==============================================================
+25/06/17 09:29:03 INFO SparkContext: Submitted application: Merger
+25/06/17 09:29:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/06/17 09:29:03 INFO ResourceProfile: Limiting resource is cpu
+25/06/17 09:29:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/06/17 09:29:03 INFO SecurityManager: Changing view acls to: root
+25/06/17 09:29:03 INFO SecurityManager: Changing modify acls to: root
+25/06/17 09:29:03 INFO SecurityManager: Changing view acls groups to: 
+25/06/17 09:29:03 INFO SecurityManager: Changing modify acls groups to: 
+25/06/17 09:29:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+25/06/17 09:29:03 INFO Utils: Successfully started service 'sparkDriver' on port 35021.
+25/06/17 09:29:03 INFO SparkEnv: Registering MapOutputTracker
+25/06/17 09:29:03 INFO SparkEnv: Registering BlockManagerMaster
+25/06/17 09:29:03 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/06/17 09:29:03 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/06/17 09:29:03 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/06/17 09:29:03 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-a2a77817-43d4-45df-a6a4-86cc69065945
+25/06/17 09:29:03 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/06/17 09:29:03 INFO SparkEnv: Registering OutputCommitCoordinator
+25/06/17 09:29:03 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/06/17 09:29:03 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/06/17 09:29:03 INFO SparkContext: Added JAR file:///spark/jars/delta-core_2.12-3.1.0.jar at spark://d4029d04b26e:35021/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO SparkContext: Added JAR file:///spark/jars/delta-storage-3.1.0.jar at spark://d4029d04b26e:35021/jars/delta-storage-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO SparkContext: Added JAR file:///spark/jars/delta-spark_2.12-3.1.0.jar at spark://d4029d04b26e:35021/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO Executor: Starting executor ID driver on host d4029d04b26e
+25/06/17 09:29:03 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+25/06/17 09:29:03 INFO Executor: Java version 11.0.27
+25/06/17 09:29:03 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/06/17 09:29:03 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@13c36d8c for default.
+25/06/17 09:29:03 INFO Executor: Fetching spark://d4029d04b26e:35021/jars/delta-spark_2.12-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO TransportClientFactory: Successfully created connection to d4029d04b26e/172.21.0.11:35021 after 20 ms (0 ms spent in bootstraps)
+25/06/17 09:29:03 INFO Utils: Fetching spark://d4029d04b26e:35021/jars/delta-spark_2.12-3.1.0.jar to /tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/fetchFileTemp12148013942768402087.tmp
+25/06/17 09:29:03 INFO Executor: Adding file:/tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/delta-spark_2.12-3.1.0.jar to class loader default
+25/06/17 09:29:03 INFO Executor: Fetching spark://d4029d04b26e:35021/jars/delta-core_2.12-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO Utils: Fetching spark://d4029d04b26e:35021/jars/delta-core_2.12-3.1.0.jar to /tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/fetchFileTemp16744392555773648518.tmp
+25/06/17 09:29:03 INFO Executor: Adding file:/tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/delta-core_2.12-3.1.0.jar to class loader default
+25/06/17 09:29:03 INFO Executor: Fetching spark://d4029d04b26e:35021/jars/delta-storage-3.1.0.jar with timestamp 1750152543008
+25/06/17 09:29:03 INFO Utils: Fetching spark://d4029d04b26e:35021/jars/delta-storage-3.1.0.jar to /tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/fetchFileTemp11540542805587371186.tmp
+25/06/17 09:29:03 INFO Executor: Adding file:/tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/userFiles-64f2c4da-dbf7-4ef4-9add-eab663f7136c/delta-storage-3.1.0.jar to class loader default
+25/06/17 09:29:03 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40901.
+25/06/17 09:29:03 INFO NettyBlockTransferService: Server created on d4029d04b26e:40901
+25/06/17 09:29:03 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/06/17 09:29:03 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, d4029d04b26e, 40901, None)
+25/06/17 09:29:03 INFO BlockManagerMasterEndpoint: Registering block manager d4029d04b26e:40901 with 434.4 MiB RAM, BlockManagerId(driver, d4029d04b26e, 40901, None)
+25/06/17 09:29:03 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, d4029d04b26e, 40901, None)
+25/06/17 09:29:03 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, d4029d04b26e, 40901, None)
+25/06/17 09:29:04 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/06/17 09:29:04 INFO SharedState: Warehouse path is 'file:/root/spark-warehouse'.
+25/06/17 09:29:04 INFO InMemoryFileIndex: It took 42 ms to list leaf files for 1 paths.
+Traceback (most recent call last):
+  File "/app/cleaner/files_merger.py", line 32, in <module>
+    merge_small_files("/app/data_lake/logs", "/app/data_lake/logs_to_merge", "/app/data_lake/merged")
+  File "/app/cleaner/files_merger.py", line 18, in merge_small_files
+    df = spark.read.json(str(temp_path))
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 425, in json
+  File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 185, in deco
+pyspark.errors.exceptions.captured.AnalysisException: [UNABLE_TO_INFER_SCHEMA] Unable to infer schema for JSON. It must be specified manually.
+25/06/17 09:29:05 INFO SparkContext: Invoking stop() from shutdown hook
+25/06/17 09:29:05 INFO SparkContext: SparkContext is stopping with exitCode 0.
+25/06/17 09:29:05 INFO SparkUI: Stopped Spark web UI at http://d4029d04b26e:4040
+25/06/17 09:29:05 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/06/17 09:29:05 INFO MemoryStore: MemoryStore cleared
+25/06/17 09:29:05 INFO BlockManager: BlockManager stopped
+25/06/17 09:29:05 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/06/17 09:29:05 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/06/17 09:29:05 INFO SparkContext: Successfully stopped SparkContext
+25/06/17 09:29:05 INFO ShutdownHookManager: Shutdown hook called
+25/06/17 09:29:05 INFO ShutdownHookManager: Deleting directory /tmp/spark-7e458860-bb81-4fe9-aa0f-c855c4f1d1ae
+25/06/17 09:29:05 INFO ShutdownHookManager: Deleting directory /tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81
+25/06/17 09:29:05 INFO ShutdownHookManager: Deleting directory /tmp/spark-6948b22c-d226-4001-841d-bcd6f70dbf81/pyspark-76bd91ad-60de-4567-a662-29468656639e

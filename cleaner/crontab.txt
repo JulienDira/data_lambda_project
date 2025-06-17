@@ -1,0 +1,7 @@
+PATH=/opt/spark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+PY_FILE=files_merger
+
+* * * * * echo "cron tick: $(date)" >> /var/log/cron/cron.log
+
+* * * * * /app/cleaner/run_spark_job.sh
